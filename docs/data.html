@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-11-27" />
+<meta name="date" content="2022-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -110,12 +110,23 @@
 <h1><span class="header-section-number">Chapter 3</span> Data<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="sources" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Sources<a href="data.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The source of the data we use is the NYC Open Data (<a href="https://opendata.cityofnewyork.us" class="uri">https://opendata.cityofnewyork.us</a>). The data set NYC Jobs (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). The data is collected by NYC Open Data and provided by Department of Citywide Administrative Services (DCAS). We choose this dataset because it is provided directly from a government agency and has high credibility. It also has the detailed and most updated list of NYC government jobs, so it is a suitable dataset for our research.</p>
+<p>The dataset has 5421 observations, each of which is a job posting. It has 30 columns. Among them, 3 columns are date&amp;time variables 4 columns are continuous variable and 23 are plain text variables. Each column of this dataset contains information or requirement of this job posting.</p>
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as <mark >Title.Code.No</mark >. The remaining columns are the 16 columns below:</p>
+<p>Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <mark >Career.Level</mark > and <mark >Full.Time.Part.Time.indicator”</mark> columns.</p>
+<p>In the data transformation step, to have a better idea of the salary of each job, we add a new column ‘Mean.Salary’ by calculating the mean of <mark >Salary.Range.From</mark> and <mark >Salary.Range.To</mark>.</p>
+<p>We also transformed the <mark >Residency.Requirement</mark> by adding a new column <mark >res.requirement</mark > to put the requirement into 3 categories: ‘required’, ‘generally required’, ‘not required’ to make it easier to analyze.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are empty strings in this dataset that are missing values. To address them, we fill the empty strings with NAs. We use extracat::visna to visualize the missing values for each columns in this dataset.</p>
+<div class="figure">
+<img src="images/missingvalues.png" alt="" />
+<p class="caption">Missing Values Visualization</p>
+</div>
 
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-11-27" />
+<meta name="date" content="2022-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,8 +114,9 @@
 </div>
 <div id="data-availability" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Data availability<a href="proposal.html#data-availability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data we use is from NYC Open Data (<a href="https://opendata.cityofnewyork.us" class="uri">https://opendata.cityofnewyork.us</a>). The data set NYC Jobs (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). Internal postings available to city employees and external postings available to the general public are included.</p>
-<p>The data is a csv file, we weould use read.csv() function to read and save the data for use in this project.</p>
+<p>The data we use is from NYC Open Data (<a href="https://opendata.cityofnewyork.us" class="uri">https://opendata.cityofnewyork.us</a>). The data set NYC Jobs (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). Internal postings available to city employees and external postings available to the general public are included. The data is provided by Department of Citywide Administrative Services (DCAS) and is constantly updating. The data is updated “as needed” and the last updated date as we worked on this project is on November 12, 2022.</p>
+<p>The data is downloaded as a CSV file. We would import the data using read.csv() function to read and save the data as a DataFrame for use in this project. The DataFrame contains 5421 observatiosn and 30 variables. Each row is a job posting on the website, and the columns are the information for each job, eg. Agency, Business Title, Career Level, Salary, Job Category, etc. We wound mainly focus on Business titles, Job categories, Agency and divisions, Education backgrounds, etc. that are related with our study.</p>
+<p>The data is tidy and we only need to address missing values.</p>
 
 </div>
 </div>

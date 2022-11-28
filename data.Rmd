@@ -30,4 +30,8 @@
   
 
 ## Missing value analysis
+There are empty strings in this dataset that are missing values. To address them, we fill the empty strings with NAs. We use extracat::visna to visualize the missing values for each columns in this dataset.
+
+![Missing Values Visualization](images/missingvalues.png)
+
 

@@ -1,7 +1,7 @@
 # Data Cleaning and Transformation
 
 ```{r}
-df_ori <- read.csv('NYC_Jobs.csv')
+df_ori <- read.csv('data/NYC_Jobs.csv')
 head(df_ori)
 ```
 # Data Cleaning
@@ -52,6 +52,13 @@ table(df$Preferred.Skills)
 # Missing Value
 ```{r}
 library(ggplot2)
-colSums(is.na(df))
+library(devtools)
+devtools::install_github("heike/extracat")
+library(extracat)
+#colSums(is.na(df))
+df <- df %>% mutate_all(na_if,"")
+#head(df)
+extracat::visna(df)
+
 ```
 
