@@ -2,7 +2,32 @@
 
 ## Sources
 
+  The source of the data we use is the NYC Open Data (https://opendata.cityofnewyork.us). The data set NYC Jobs (https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t) contains current job postings available on the City of New York’s official jobs site (http://www.nyc.gov/html/careers/html/search/search.shtml). The data is collected by NYC Open Data and provided by Department of Citywide Administrative Services (DCAS). We choose this dataset because it is provided directly from a government agency and has high credibility. It also has the detailed and most updated list of NYC government jobs, so it is a suitable dataset for our research.
+  
+  The dataset has 5421 observations, each of which is a job posting. It has 30 columns. Among them, 3 columns are date&time variables 4 columns are continuous variable and 23 are plain text variables. Each column of this dataset contains information or requirement of this job posting.
+
 ## Cleaning / transformation
+
+  Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as <mark >Title.Code.No</mark >. The remaining columns are the 16 columns below:
+
+```{r}
+# [1] "Agency"                        "X..Of.Positions"              
+# [3] "Business.Title"                "Civil.Service.Title"          
+# [5] "Title.Classification"          "Level"                        
+# [7] "Job.Category"                  "Full.Time.Part.Time.indicator"
+# [9] "Career.Level"                  "Salary.Range.From"            
+# [11] "Salary.Range.To"               "Salary.Frequency"             
+# [13] "Division.Work.Unit"            "Minimum.Qual.Requirements"    
+# [15] "Preferred.Skills"              "Residency.Requirement"
+# [17] "Work.Location"
+```
+
+  Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <mark >Career.Level</mark > and <mark >Full.Time.Part.Time.indicator"</mark> columns.
+  
+  In the data transformation step, to have a better idea of the salary of each job, we add a new column 'Mean.Salary' by calculating the mean of <mark >Salary.Range.From</mark> and <mark >Salary.Range.To</mark>.
+  
+  We also transformed the <mark >Residency.Requirement</mark> by adding a new column <mark >res.requirement</mark > to put the requirement into 3 categories: 'required', 'generally required', 'not required' to make it easier to analyze.
+  
 
 ## Missing value analysis
 

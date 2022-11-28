@@ -1,0 +1,57 @@
+# Data Cleaning and Transformation
+
+```{r}
+df_ori <- read.csv('NYC_Jobs.csv')
+head(df_ori)
+```
+# Data Cleaning
+```{r}
+#select columns
+df <- df_ori[,c('Agency', 'X..Of.Positions','Business.Title','Civil.Service.Title','Title.Classification','Level','Job.Category','Full.Time.Part.Time.indicator','Career.Level','Salary.Range.From','Salary.Range.To','Salary.Frequency','Division.Work.Unit','Minimum.Qual.Requirements','Preferred.Skills','Residency.Requirement','Work.Location')]
+head(df)
+```
+```{r}
+# Full time job
+df <- df[df$Full.Time.Part.Time.indicator == 'F',]
+# Entry Level Job
+df <- df[df$Career.Level == 'Entry-Level',]
+df <- df[ ,!(names(df) %in% c('Full.Time.Part.Time.indicator', 'Career.Level'))]
+head(df)
+```
+
+# Data Transformation
+```{r}
+library(dplyr)
+# find mean salary
+df$mean.salary <- (df$Salary.Range.From + df$Salary.Range.To)/2
+
+df <- df %>%
+  mutate(res.requirement = case_when(
+    grepl("not required", tolower(Residency.Requirement)) ~ 'not required',
+    grepl("not currently required", tolower(Residency.Requirement)) ~ 'not required',
+    grepl("no residency requirement", tolower(Residency.Requirement)) ~ 'not required',
+    grepl("exempt from", tolower(Residency.Requirement)) ~ 'not required',
+    grepl("generally required", tolower(Residency.Requirement)) ~ 'generally required',
+    grepl("required within 90 days", tolower(Residency.Requirement)) ~ 'generally required',
+    TRUE ~ 'required'
+  ))
+```
+ 
+```{r}
+#
+#table(df$Minimum.Qual.Requirements)
+#df <- df %>%
+#  mutate(edu.require = case_when(
+#    grepl('baccalaureate degree',Minimum.Qual.Requirements) ~ 'baccalaureate degree',
+#    salary_type == 'week' ~ current_salary * 52,
+#    TRUE ~ current_salary
+#  ))
+table(df$Preferred.Skills)
+```
+
+# Missing Value
+```{r}
+library(ggplot2)
+colSums(is.na(df))
+```
+

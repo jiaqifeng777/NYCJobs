@@ -6,3 +6,4 @@ We want to analyze the influential factors of the salaries of NYC jobs. In parti
 ## Data availability
 The data we use is from NYC Open Data (https://opendata.cityofnewyork.us). The data set NYC Jobs (https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t) contains current job postings available on the City of New York’s official jobs site (http://www.nyc.gov/html/careers/html/search/search.shtml). Internal postings available to city employees and external postings available to the general public are included.
 
+The data is a csv file, we would use read.csv() function to read and save the data for use in this project.
