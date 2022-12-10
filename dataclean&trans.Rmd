@@ -57,8 +57,22 @@ devtools::install_github("heike/extracat")
 library(extracat)
 #colSums(is.na(df))
 df <- df %>% mutate_all(na_if,"")
-#head(df)
+df_ori <- df_ori %>% mutate_all(na_if,"")
+colMeans(is.na(df))*100
+#visualize original df
+extracat::visna(df_ori)
+#visualize transformed df
 extracat::visna(df)
 
+```
+
+```{r}
+#Preferred.Skills
+skill_miss <- subset(df,is.na(Preferred.Skills))
+ggplot(skill_miss, aes(x=Agency)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=45,hjust=1),
+        axis.text=element_text(size=5)) +
+  labs(title="Missing Prefered Skill by Agency")
 ```
 
