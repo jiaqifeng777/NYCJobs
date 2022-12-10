@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-11-28" />
+<meta name="date" content="2022-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -122,11 +122,15 @@
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are empty strings in this dataset that are missing values. To address them, we fill the empty strings with NAs. We use extracat::visna to visualize the missing values for each columns in this dataset.</p>
-<div class="figure">
-<img src="images/missingvalues.png" alt="" />
-<p class="caption">Missing Values Visualization</p>
-</div>
+<p>There are empty strings in this dataset that are missing values. To address them, we fill the empty strings with NAs.
+We use extracat::visna to visualize the missing values for each column in this dataset.</p>
+<p><img src="images/missingvalues.png" alt="Missing Values Visualization on Wohle Dataset" />
+There are 10 columns contain missing values. We would only focus on the 16 columns that contain pivotal information, so we further visualize missing values on these selected columns.</p>
+<p><img src="images/missingvalueselected.png" alt="Missing Values Visualization on Selected Columns" />
+The only columns that contain missing values here are “Minimum Qual Requirements” and “Preferred Skills”. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.</p>
+<p>Observed that “Preferred Skills” has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of “Preferred Skills” by “Agency” and visualize it with a bar plot.
+<img src="images/missingvaluescount.png" alt="Missing Values Counts" />
+NYC Housing Authority has the most missing values for “Preferred Skills” and Police Department has the least. This is informative as police department have specific skill requirements due to its job nature, while housing authority might not，so the values for “Preferred Skills” tend to be missing on job postings.</p>
 
 </div>
 </div>

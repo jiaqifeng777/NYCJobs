@@ -46,7 +46,7 @@ df <- df %>%
 #    salary_type == 'week' ~ current_salary * 52,
 #    TRUE ~ current_salary
 #  ))
-table(df$Preferred.Skills)
+#table(df$Preferred.Skills)
 ```
 
 # Missing Value
