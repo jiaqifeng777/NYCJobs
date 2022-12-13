@@ -1,4 +1,11 @@
 # Data Cleaning and Transformation
+```{r}
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(devtools)
+library(extracat)
+```
 
 ```{r}
 df_ori <- read.csv('data/NYC_Jobs.csv')
@@ -21,7 +28,6 @@ head(df)
 
 # Data Transformation
 ```{r}
-library(dplyr)
 # find mean salary
 df$mean.salary <- (df$Salary.Range.From + df$Salary.Range.To)/2
 
@@ -51,10 +57,7 @@ df <- df %>%
 
 # Missing Value
 ```{r}
-library(ggplot2)
-library(devtools)
 devtools::install_github("heike/extracat")
-library(extracat)
 #colSums(is.na(df))
 df <- df %>% mutate_all(na_if,"")
 df_ori <- df_ori %>% mutate_all(na_if,"")
@@ -74,5 +77,84 @@ ggplot(skill_miss, aes(x=Agency)) +
   theme(axis.text.x=element_text(angle=45,hjust=1),
         axis.text=element_text(size=5)) +
   labs(title="Missing Prefered Skill by Agency")
+```
+
+```{r}
+# Number of jobs by Agency
+df_agency <- df %>%
+  group_by(Agency) %>%
+  summarise(Frequency = sum(X..Of.Positions))
+
+ggplot(df_agency, aes(x = fct_reorder(Agency, Frequency,.desc = TRUE), y=Frequency))+
+  geom_bar(stat='identity')  + 
+  xlab("Agency")+
+  ylab("Number of Jobs Posted") + 
+  labs(title="Number of Jobs Posted by Agency")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+
+```{r}
+df_agency <- df %>%
+  group_by(Agency) %>%
+  summarise(Frequency = sum(X..Of.Positions))
+df_agency <- df_agency %>%
+  mutate(Agency =  
+          case_when(Frequency <= 20 ~ "OTHER",
+                    TRUE ~ Agency))
+ggplot(df_agency, aes(x = fct_reorder(Agency, Frequency,.desc = TRUE), y=Frequency))+
+  geom_bar(stat='identity')  + 
+  xlab("Agency")+
+  ylab("Number of Jobs Posted") + 
+  labs(title="Number of Jobs Posted by Agency")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+```{r}
+s_agency <- df %>%
+  filter(Salary.Frequency == 'Annual') %>%
+  group_by(Agency) %>%
+  summarise(avgSalary = mean(mean.salary))
+s_agency
+ggplot(s_agency, aes(x = fct_reorder(Agency, avgSalary,.desc = TRUE), y=avgSalary))+
+  geom_bar(stat='identity')  +
+  xlab("Agency")+
+  ylab("Average Salary") + 
+  labs(title="Average Salary of Jobs Posted by Agency")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+```{r}
+table(df$Job.Category)
+```
+```{r}
+jobcat <- function(cat) {
+  result <- c()
+  if (length(cat)==0){
+    return(result)
+  }
+  if (grepl(',',cat)){
+    result <- strsplit(cat, ",")[[1]]
+    for (i in 1:length(result)){
+      if (substr(result[i],0,1) == ' '){
+        result[i] = sub(" ","",result[i])
+      }
+      if (substr(result[i],0,2) == '& '){
+        result[i] = sub("& ","",result[i])
+      }
+    }
+  } else {
+    result <- c()
+    result[0] <- cat
+  }
+  return(result)
+}
+df$skilst <-lapply(df$Job.Category, jobcat)
 ```
 
