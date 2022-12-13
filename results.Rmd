@@ -1,6 +1,20 @@
 # Results
 
-## 5.1 Jobs Analysis by Agency
+## Job Conditions Analysis by Agency
 
-In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the salary of these jobs.
+In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.
+
+## Job Conditions Analysis by Job Category
+
+In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.
+
+## Jobs Competitiveness and Qualifications Analysis
+
+In this part, we will analyze the minimum qualification requirements of jobs and further study if it has an association with job competitiveness.
+
+After data cleaning on *Minimum.Qual.Requirements* column, we observe that the highest-standard minimum qualification requirement is Master's Degree. As Master students, we would like to see whether jobs that require a minimum qualification of a Master's Degree are more competitive. The competitiveness of jobs are indicated in the column *Title.Classification*. We did some data cleaning and categorized the competitiveness of jobs into 'highly competitive' and 'not highly competitive'. 
+
+To better visualize the association between minimum qualification requirement and job competitiveness, we plot a mosaic plot as below.
+
+![Mosaic Plot of Job Competitiveness vs. Master Requirement](images/mosaic.png)
 

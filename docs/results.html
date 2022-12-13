@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-11-27" />
+<meta name="date" content="2022-12-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -84,7 +84,12 @@
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-agency"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Agency</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.2</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -108,7 +113,25 @@
             <section class="normal" id="section-">
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="job-conditions-analysis-by-agency" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Job Conditions Analysis by Agency<a href="results.html#job-conditions-analysis-by-agency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.</p>
+</div>
+<div id="job-conditions-analysis-by-job-category" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Job Conditions Analysis by Job Category<a href="results.html#job-conditions-analysis-by-job-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.</p>
+</div>
+<div id="jobs-competitiveness-and-qualifications-analysis" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Jobs Competitiveness and Qualifications Analysis<a href="results.html#jobs-competitiveness-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this part, we will analyze the minimum qualification requirements of jobs and further study if it has an association with job competitiveness.</p>
+<p>After data cleaning on <em>Minimum.Qual.Requirements</em> column, we observe that the highest-standard minimum qualification requirement is Master’s Degree. As Master students, we would like to see whether jobs that require a minimum qualification of a Master’s Degree are more competitive. The competitiveness of jobs are indicated in the column <em>Title.Classification</em>. We did some data cleaning and categorized the competitiveness of jobs into ‘highly competitive’ and ‘not highly competitive’.</p>
+<p>To better visualize the association between minimum qualification requirement and job competitiveness, we plot a mosaic plot as below.</p>
+<div class="figure">
+<img src="images/mosaic.png" alt="" />
+<p class="caption">Mosaic Plot of Job Competitiveness and Master Requirement</p>
+</div>
 
+</div>
 </div>
             </section>
 
