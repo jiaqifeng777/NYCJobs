@@ -11,7 +11,7 @@ library(extracat)
 df_ori <- read.csv('data/NYC_Jobs.csv')
 head(df_ori)
 ```
-# Data Cleaning
+# 3.2 Data Cleaning
 ```{r}
 #select columns
 df <- df_ori[,c('Agency', 'X..Of.Positions','Business.Title','Civil.Service.Title','Title.Classification','Level','Job.Category','Full.Time.Part.Time.indicator','Career.Level','Salary.Range.From','Salary.Range.To','Salary.Frequency','Division.Work.Unit','Minimum.Qual.Requirements','Preferred.Skills','Residency.Requirement','Work.Location')]
@@ -55,7 +55,7 @@ df <- df %>%
 #table(df$Preferred.Skills)
 ```
 
-# Missing Value
+# 3.3 Missing Value
 ```{r}
 devtools::install_github("heike/extracat")
 #colSums(is.na(df))
@@ -70,7 +70,7 @@ extracat::visna(df)
 ```
 
 ```{r}
-#Preferred.Skills
+# Preferred.Skills
 skill_miss <- subset(df,is.na(Preferred.Skills))
 ggplot(skill_miss, aes(x=Agency)) +
   geom_bar()+
@@ -78,7 +78,7 @@ ggplot(skill_miss, aes(x=Agency)) +
         axis.text=element_text(size=5)) +
   labs(title="Missing Prefered Skill by Agency")
 ```
-
+# 4 Results
 ```{r}
 # Number of jobs by Agency
 df_agency <- df %>%
@@ -130,6 +130,18 @@ ggplot(s_agency, aes(x = fct_reorder(Agency, avgSalary,.desc = TRUE), y=avgSalar
         axis.title.x = element_text(size=8),
         axis.title.y = element_text(size=8))
 ```
+
+```{r}
+# Cleveland dot plot of Average Salary
+library(Lock5withR)
+ggplot(s_agency, aes(x = avgSalary, y = fct_reorder(Agency, avgSalary))) +
+  geom_point(color = "blue") +
+  ggtitle("Average Salary by Agency") +
+  ylab("") +
+  theme_linedraw()
+```
+
+
 ```{r}
 table(df$Job.Category)
 ```
@@ -156,5 +168,196 @@ jobcat <- function(cat) {
   return(result)
 }
 df$skilst <-lapply(df$Job.Category, jobcat)
+```
+
+```{r}
+# Job Category Cleaning
+jobcat2 <- function(cat) {
+  result <- c()
+  if (length(cat)==0){
+    return(result)
+  }
+  if (grepl(',', cat)){
+    result <- strsplit(cat, ",")[[1]]
+    for (i in 1:length(result)){
+      if (substr(result[i],0,1) == ' '){
+        result[i] = sub(" ","",result[i])
+      }
+      if (substr(result[i],0,2) == '& '){
+        result[i] = sub("& ","",result[i])
+      }
+    }
+  } else if (grepl('&',cat)){
+    result <- strsplit(cat, "&")[[1]]
+    for (i in 1:length(result)){
+      if (substr(result[i],0,1) == ' '){
+        result[i] = sub(" ","",result[i])
+      }
+    }
+  } else {
+   result <- c(result, cat)
+  }
+  return(result)
+}
+
+```
+
+```{r}
+# Extract first key word in category
+extract_cat <- function(cat) {
+  if (is.vector(cat)){
+    result <- cat[[1]][1]
+    if (grepl('&', result)){
+      lst <- strsplit(cat, "&")[[1]]
+      result <- lst[1]
+    }
+  }else{
+      result <- cat[[1]]
+    }
+  return(result)
+}
+
+category_cleaned <- lapply(df$Job.Category, jobcat2)
+category_cleaned <-unlist(lapply(category_cleaned, extract_cat))
+```
+
+```{r}
+combine_cat <- function(cat) {
+  if (grepl('Health', cat)){
+    result <- 'Health'
+  }else if (grepl('Legal Affairs', cat)){
+    result <- 'Legal Affairs'
+  } else if (grepl('Technology', cat)){
+    result <- 'Technology'
+  }else{
+    result <- cat
+  }
+  return(result)
+}
+
+df$category_cleaned <- unlist(lapply(category_cleaned, combine_cat))
+df %>%
+  group_by(category_cleaned) %>%
+  count()
+```
+
+
+```{r}
+df_jobcat <- df %>%
+  group_by(category_cleaned) %>%
+  summarise(Frequency = sum(X..Of.Positions))
+
+
+ggplot(df_jobcat, aes(x = fct_reorder(category_cleaned, Frequency,.desc = TRUE), y=Frequency))+
+  geom_bar(stat='identity')  + 
+  xlab("Job Category")+
+  ylab("Number of Jobs Posted") + 
+  labs(title="Number of Jobs Posted by Job Category")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+
+
+```{r}
+# Cleveland dot plot of Average Salary
+library(Lock5withR)
+
+s_cat <- df %>%
+  group_by(category_cleaned) %>%
+  summarise(avgSalary = mean(mean.salary))
+
+ggplot(s_cat, aes(x = avgSalary, y = fct_reorder(category_cleaned, avgSalary))) +
+  geom_point(color = "blue") +
+  ggtitle("Average Salary by Job Category") +
+  ylab("") +
+  theme_linedraw()
+```
+
+
+```{r}
+# avg salary by job category
+s_cat <- df %>%
+  group_by(category_cleaned) %>%
+  summarise(avgSalary = mean(mean.salary))
+
+
+ggplot(s_cat, aes(x = fct_reorder(category_cleaned, avgSalary,.desc = TRUE), y=avgSalary))+
+  geom_bar(stat='identity')  +
+  xlab("Job Cateogry")+
+  ylab("Average Salary") + 
+  labs(title="Average Salary by Job Category")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+```{r}
+annual_salary <- df %>%
+  filter(Salary.Frequency == 'Annual') 
+
+ggplot(annual_salary, aes(x=reorder(category_cleaned, -mean.salary, median),y=mean.salary)) +
+  geom_boxplot() +
+  coord_flip() +
+  ggtitle("Boxplot of Mean Annual Salary by Job Category") +
+  labs(y="Mean Annnual Salary", x="Job Category")
+```
+```{r}
+# Qual Requirements Cleaning
+extract_qual <- function(qual) {
+  qual <- tolower(qual)
+  if (grepl('master', qual)){
+    result <- 'master degree'
+  }else if (grepl('college', qual) | grepl('law school', qual)){
+    result <- 'college degree'
+  }else if (grepl('high school', qual)){
+    result <- 'high school'
+  }else if (grepl('certificate', qual) | grepl('possess', qual)){
+    result <- 'relevant certificates required'
+  }else if (grepl('experience', qual)){
+    result <- 'relative experience required'
+  }else if (grepl('ability', qual)){
+    result <- 'special abilities required'
+  }else if (grepl('no formal', qual)){
+    result <- 'no formal requirements'
+  }else{
+    result <- qual
+  }
+  return(result)
+}
+```
+```{r}
+df$minqual_cleaned <- unlist(lapply(df$Minimum.Qual.Requirements, extract_qual))
+
+df %>%
+  group_by(minqual_cleaned) %>%
+  count()
+```
+
+```{r}
+# competitiveness vs. master qualification
+df %>%
+  group_by(Title.Classification) %>%
+  count()
+
+df_comp <- df %>%
+  filter((Title.Classification == 'Competitive-1') | (Title.Classification == 'Non-Competitive-5')) %>%
+  mutate(competitiveness = case_when(
+    grepl("Non-Competitive-5", Title.Classification) ~ 'not competitive',
+    TRUE ~ 'highly competitive'
+  ))
+
+df_ms <- df_comp %>%
+  mutate(master_qual = case_when(
+    grepl("master", minqual_cleaned) ~ 'master required',
+    TRUE ~ 'master not required'
+  ))
+
+counts2 <- df_ms%>%
+  group_by(competitiveness, master_qual)%>%
+  summarise(Freq = sum(mean.salary))
+
+vcd::mosaic(competitiveness ~ master_qual, counts2, direction = c("v", "h"))
 ```
 
