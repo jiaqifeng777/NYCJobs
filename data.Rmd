@@ -5,10 +5,12 @@
   The source of the data we use is the NYC Open Data (https://opendata.cityofnewyork.us). The data set NYC Jobs (https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t) contains current job postings available on the City of New York’s official jobs site (http://www.nyc.gov/html/careers/html/search/search.shtml). The data is collected by NYC Open Data and provided by Department of Citywide Administrative Services (DCAS). We choose this dataset because it is provided directly from a government agency and has high credibility. It also has the detailed and most updated list of NYC government jobs, so it is a suitable dataset for our research.
   
   The dataset has 5421 observations, each of which is a job posting. It has 30 columns. Among them, 3 columns are date&time variables 4 columns are continuous variable and 23 are plain text variables. Each column of this dataset contains information or requirement of this job posting.
+  
+  Although the dataset is mostly clean, there is still problem with it. Since the jobs are posted by different agencies, the format of some columns is not uniform, especially for those that have long sentences, so we will spend extra time to clean these data.
 
 ## Cleaning / transformation
 
-  Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as <mark >Title.Code.No</mark >. The remaining columns are the 16 columns below:
+  Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as **Title.Code.No*</mark >**. The remaining columns are the 16 columns below:
 
 ```{r}
 # [1] "Agency"                        "X..Of.Positions"              

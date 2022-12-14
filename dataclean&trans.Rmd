@@ -5,6 +5,9 @@ library(dplyr)
 library(ggplot2)
 library(devtools)
 library(extracat)
+library(stringr)
+library(tidytext)
+library(wordcloud2)
 ```
 
 ```{r}
@@ -395,5 +398,58 @@ p + geom_violin() +
   ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification Requirement") +
   labs(x="Mean Annnual Salary", y="Min Qualification Requirement") +
   theme(plot.title = element_text(size=12))
+```
+#Skill
+```{r}
+#clean skill
+df$cleanskill <- tolower(lapply(df$Preferred.Skills,function(x) str_replace_all(x, "[^a-zA-Z]", " ")))
+df_skill <- df  %>%
+  unnest_tokens(cleanskill, cleanskill) %>%
+  anti_join(stop_words, by= c("cleanskill" = "word"))
+skills <- names(sort(table(df_skill$cleanskill),decreasing=TRUE)[1:50])
+common <- c("skills","ability","experience","excellent","strong","knowledge","proficiency","demonstrated","including","deadlines","preferred","detail","people","attention","weekends","city", "independently","multiple","effectively","qualifications","service","candidate","familiarity","candidates")
+skillset <- skills[!skills %in% common]
+df_skill <- df_skill %>%
+  filter(cleanskill %in% skillset)
+```
+
+```{r}
+#graph
+gskill <- df_skill %>%
+  group_by(cleanskill) %>% 
+  summarise(Freq = sum(X..Of.Positions),avgSalary = mean(mean.salary))
+ggplot(gskill, aes(x = fct_reorder(cleanskill, Freq,.desc = TRUE), y=Freq))+
+  geom_bar(stat='identity')  + 
+  xlab("Skill")+
+  ylab("Number of Jobs Related") + 
+  labs(title="Skill Freq Distribution")+
+  theme(axis.text.x=element_text(angle=60,hjust=1),
+        axis.text=element_text(size=5.5),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8))
+```
+```{r}
+ggplot(gskill, aes(x = avgSalary, y = fct_reorder(cleanskill, avgSalary))) +
+  geom_point(color = "blue") +
+  ggtitle("Avg Salary of Jobs Related to Skill") +
+  ylab("AvgSalary") +
+  theme_linedraw()+
+  theme(axis.text=element_text(size=5.5))
+```
+
+
+```{r}
+techskill <- df_skill %>%
+  filter(category_cleaned == "Technology") %>%
+  group_by(cleanskill) %>%
+  summarise(Freq=sum(X..Of.Positions))
+wordcloud2(techskill)
+```
+```{r}
+buildskill <- df_skill %>%
+  filter(category_cleaned == "Building Operations ") %>%
+  group_by(cleanskill) %>%
+  summarise(Freq=sum(X..Of.Positions))
+wordcloud2(buildskill)
 ```
 
