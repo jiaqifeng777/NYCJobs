@@ -1,0 +1,110 @@
+"","cleanskill","minqual_cleaned","freq"
+"1","analytical","college degree",182
+"2","analytical","high school",10
+"3","analytical","master degree",27
+"4","analytical","relative experience required",8
+"5","communication","college degree",676
+"6","communication","high school",54
+"7","communication","master degree",77
+"8","communication","relative experience required",52
+"9","communication",NA,20
+"10","computer","college degree",160
+"11","computer","high school",24
+"12","computer","master degree",10
+"13","computer","relative experience required",17
+"14","data","college degree",111
+"15","data","high school",17
+"16","data","master degree",21
+"17","data","relative experience required",6
+"18","environment","college degree",62
+"19","environment","high school",80
+"20","environment","master degree",17
+"21","environment","relative experience required",6
+"22","excel","college degree",363
+"23","excel","high school",48
+"24","excel","master degree",18
+"25","excel","relative experience required",6
+"26","excel",NA,20
+"27","interpersonal","college degree",213
+"28","interpersonal","high school",8
+"29","interpersonal","master degree",38
+"30","interpersonal","relative experience required",10
+"31","interpersonal","special abilities required",6
+"32","interpersonal",NA,20
+"33","learn","college degree",48
+"34","learn","high school",58
+"35","learn","master degree",2
+"36","learn","relative experience required",6
+"37","license","college degree",358
+"38","license","high school",18
+"39","license","master degree",12
+"40","license","relative experience required",18
+"41","management","college degree",260
+"42","management","high school",54
+"43","management","master degree",31
+"44","management","relative experience required",18
+"45","management",NA,20
+"46","microsoft","college degree",422
+"47","microsoft","high school",71
+"48","microsoft","master degree",52
+"49","microsoft","relative experience required",6
+"50","microsoft",NA,20
+"51","ms","college degree",78
+"52","ms","high school",19
+"53","ms","master degree",11
+"54","office","college degree",213
+"55","office","high school",53
+"56","office","master degree",51
+"57","office","relative experience required",12
+"58","office",NA,40
+"59","oral","college degree",180
+"60","oral","high school",15
+"61","oral","master degree",14
+"62","oral","relative experience required",27
+"63","organizational","college degree",279
+"64","organizational","high school",19
+"65","organizational","master degree",38
+"66","organizational","relative experience required",32
+"67","organizational",NA,2
+"68","powerpoint","college degree",79
+"69","powerpoint","high school",35
+"70","powerpoint","master degree",11
+"71","powerpoint","relative experience required",6
+"72","projects","college degree",88
+"73","projects","high school",2
+"74","projects","master degree",34
+"75","projects","relative experience required",2
+"76","public","college degree",62
+"77","public","high school",20
+"78","public","master degree",45
+"79","quantitative","college degree",66
+"80","quantitative","master degree",5
+"81","software","college degree",133
+"82","software","master degree",9
+"83","software","relative experience required",6
+"84","team","college degree",267
+"85","team","high school",10
+"86","team","master degree",32
+"87","team","relative experience required",18
+"88","team","relevant certificates required",4
+"89","team",NA,20
+"90","technical","college degree",98
+"91","technical","master degree",16
+"92","verbal","college degree",166
+"93","verbal","high school",20
+"94","verbal","master degree",22
+"95","verbal",NA,20
+"96","word","college degree",293
+"97","word","high school",48
+"98","word","master degree",11
+"99","word","relative experience required",6
+"100","word",NA,20
+"101","writing","college degree",146
+"102","writing","high school",21
+"103","writing","master degree",20
+"104","writing","relative experience required",18
+"105","written","college degree",359
+"106","written","high school",30
+"107","written","master degree",50
+"108","written","relative experience required",27
+"109","written",NA,20

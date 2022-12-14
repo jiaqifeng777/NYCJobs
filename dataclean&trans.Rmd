@@ -459,4 +459,10 @@ df_g_skill <- df_skill %>%
   summarise(freq = sum(X..Of.Positions)) %>%
   ungroup()
 ```
+```{r}
+df_gm_skill <- df_skill %>%
+  group_by(cleanskill,minqual_cleaned) %>%
+  summarise(freq = sum(X..Of.Positions)) %>%
+  ungroup()
+```
 
