@@ -40,4 +40,4 @@ To better visualize the association between minimum qualification requirement an
 
 ## Annual Salary and Qualifications Analysis
 
-![Violin Plot of Jof Mean Annual Salary by Minimum Qualification Requirement](images/violin.png)
+![Violin Plot of Job Mean Annual Salary by Minimum Qualification Requirement](images/violin.png)

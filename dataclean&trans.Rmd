@@ -393,7 +393,7 @@ annual_salary <- df %>%
 p <- ggplot(annual_salary, aes( mean.salary, factor(minqual_cleaned)))
 p + geom_violin() +
   ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification Requirement") +
-  labs(y="Mean Annnual Salary", x="Min Qualification Requirement") +
+  labs(x="Mean Annnual Salary", y="Min Qualification Requirement") +
   theme(plot.title = element_text(size=12))
 ```
 
