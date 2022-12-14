@@ -1,6 +1,4 @@
-
-// Create SVG element
-  
+// example of a red cirlce
 var svg = d3.select("div#mysvg")
             .append("svg")
             .attr("width", "400")
@@ -8,3 +6,9 @@ var svg = d3.select("div#mysvg")
 
 svg.append("circle").attr("cx", "250").attr("cy", "250").attr("r", "50")
   .attr("fill", "red");
+
+
+// read in cleaned data
+d3.csv("/data/NYCJobsCleaned.csv", function(data) {
+    console.log(data);
+});

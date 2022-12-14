@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-12-12" />
+<meta name="date" content="2022-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -84,7 +84,14 @@
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-agency"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Agency</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.2</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.4</b> Annual Salary and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.5</b> Skill Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -112,13 +119,14 @@
 <h2><span class="header-section-number">3.1</span> Sources<a href="data.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The source of the data we use is the NYC Open Data (<a href="https://opendata.cityofnewyork.us" class="uri">https://opendata.cityofnewyork.us</a>). The data set NYC Jobs (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). The data is collected by NYC Open Data and provided by Department of Citywide Administrative Services (DCAS). We choose this dataset because it is provided directly from a government agency and has high credibility. It also has the detailed and most updated list of NYC government jobs, so it is a suitable dataset for our research.</p>
 <p>The dataset has 5421 observations, each of which is a job posting. It has 30 columns. Among them, 3 columns are date&amp;time variables 4 columns are continuous variable and 23 are plain text variables. Each column of this dataset contains information or requirement of this job posting.</p>
+<p>Although the dataset is mostly clean, there is still problem with it. Since the jobs are posted by different agencies, the format of some columns is not uniform, especially for those that have long sentences, so we will spend extra time to clean these data.</p>
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as <mark >Title.Code.No</mark >. The remaining columns are the 16 columns below:</p>
-<p>Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <mark >Career.Level</mark > and <mark >Full.Time.Part.Time.indicator”</mark> columns.</p>
-<p>In the data transformation step, to have a better idea of the salary of each job, we add a new column ‘Mean.Salary’ by calculating the mean of <mark >Salary.Range.From</mark> and <mark >Salary.Range.To</mark>.</p>
-<p>We also transformed the <mark >Residency.Requirement</mark> by adding a new column <mark >res.requirement</mark > to put the requirement into 3 categories: ‘required’, ‘generally required’, ‘not required’ to make it easier to analyze.</p>
+<p>Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as **Title.Code.No*</mark >**. The remaining columns are the 16 columns below:</p>
+<p>Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <strong>Career.Level</strong> and <strong>Full.Time.Part.Time.indicator</strong> columns.</p>
+<p>In the data transformation step, to have a better idea of the salary of each job, we add a new column ‘Mean.Salary’ by calculating the mean of <strong>Salary.Range.From</strong> and <strong>Salary.Range.To</strong>.</p>
+<p>We also transformed the <strong>Residency.Requirement</strong> by adding a new column <strong>res.requirement</strong> to put the requirement into 3 categories: ‘required’, ‘generally required’, ‘not required’ to make it easier to analyze.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -127,10 +135,10 @@ We use extracat::visna to visualize the missing values for each column in this d
 <p><img src="images/missingvalues.png" alt="Missing Values Visualization on Wohle Dataset" />
 There are 10 columns contain missing values. We would only focus on the 16 columns that contain pivotal information, so we further visualize missing values on these selected columns.</p>
 <p><img src="images/missingvalueselected.png" alt="Missing Values Visualization on Selected Columns" />
-The only columns that contain missing values here are “Minimum Qual Requirements” and “Preferred Skills”. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.</p>
-<p>Observed that “Preferred Skills” has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of “Preferred Skills” by “Agency” and visualize it with a bar plot.
+The only columns that contain missing values here are <strong>Minimum Qual Requirements</strong> and <strong>Preferred Skills</strong>. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.</p>
+<p>Observed that <strong>Preferred Skills</strong> has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of <strong>Preferred Skills</strong> by <strong>Agency</strong> and visualize it with a bar plot.
 <img src="images/missingvaluescount.png" alt="Missing Values Counts" />
-NYC Housing Authority has the most missing values for “Preferred Skills” and Police Department has the least. This is informative as police department have specific skill requirements due to its job nature, while housing authority might not，so the values for “Preferred Skills” tend to be missing on job postings.</p>
+“NYC Housing Authority” has the most missing values for <strong>Preferred Skills</strong>. This is informative as housing authority might not need specific skills due to its job nature，so the values for “Preferred Skills” tend to be missing on job postings.</p>
 
 </div>
 </div>

@@ -20,3 +20,4 @@ jobs-competetiveness-and-qualifications-analysis
 job-conditions-analysis-by-job-category
 jobs-competitiveness-and-qualifications-analysis
 annual-salary-and-qualifications-analysis
+skill-analysis

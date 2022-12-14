@@ -45,7 +45,13 @@ To better visualize the association between minimum qualification requirement an
 
 ## Annual Salary and Qualifications Analysis
 
+In this part, we will further look at the distribution of average annual salary in each level of minimum qualification requirement. To better visualize the distribution and density of the salary in each group, we use the violin plot.
+
 ![Violin Plot of Job Mean Annual Salary by Minimum Qualification Requirement](images/violin.png)
+
+From the plot above, the range of average annual salary for jobs that require relevant certificates and that require high school education are relatively small than other groups. Jobs that require a college degree have the greatest range of average annual salary. This is intuitive since most of the jobs in this dataset require a college degree, and the annual salary are influenced by other factors besides qualification requirements, resulting a greater variance. Since there are only few kinds of jobs that require relevant certificates, the annual salary for those jobs tend to cluster inside a certain range. It is also noticeable that the average annual salary for jobs that require high school education has two clusters, but they do not differ much. Jobs that require relative experience have most average salary clustered around the median. Jobs that require a master degree have the highest minimum average salary but also the greatest proportion of data clustered on the minimum average salary.
+
+
 ## Skill Analysis
 
 In this part, we will analyze the preferred skill of jobs in this dataset. In particular, we select the top25 frequent skills mentioned in the dataset to analyze their frequency and average salary.

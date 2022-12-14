@@ -1,2 +1,7 @@
 # Conclusion
 
+In this project, we analyze the job conditions in NYC from different aspects including the number of job posted and the average salaary by different agencies and different job categories, the association between job competitiveness and qualification requirements, average salary distributions related to qualification requirements, and preferred skills for jobs that are of our interests. 
+
+There are some limitations in our projects, however. First of all, the dataset contains missing values and we drop them in our analysis, which may cause our results less representative for those studied groups that contain more missing values. Second, we did analysis of job conditions on selected agencies and categorized the job categories into a few major categories, which may also lead to unrepresentative results for minor agencies and categories. For a more thorough and indicative analysis in the future, it would be better to have a detailed categorization and data cleaning process.
+
+Throughout the exploration and analysis in this project, we also gained a deeper understanding of the concepts in this course, including how to visualize different kinds of data, how to interpret the visualizations, and how they can be applied in real life analysis. We also get a deeper understanding of the job conditions in NYC, which will be helpful for our future job seeking. 

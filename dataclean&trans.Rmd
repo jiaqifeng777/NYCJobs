@@ -264,7 +264,7 @@ jobcat <- function(cat) {
   }
   return(result)
 }
-df$catlst <-lapply(df$Job.Category, jobcat)
+#df$catlst <-lapply(df$Job.Category, jobcat)
 ```
 
 ```{r}
