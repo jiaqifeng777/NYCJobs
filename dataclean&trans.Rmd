@@ -237,7 +237,7 @@ ggplot(highsg, aes(y = fct_reorder(category_cleaned, Frequency,.desc = FALSE), x
 
 
 ```{r}
-table(df$Job.Category)
+#table(df$Job.Category)
 ```
 ```{r}
 jobcat <- function(cat) {
@@ -382,5 +382,18 @@ counts2 <- df_ms%>%
   summarise(Freq = sum(mean.salary))
 
 vcd::mosaic(competitiveness ~ master_qual, counts2, direction = c("v", "h"))
+```
+
+```{r}
+
+annual_salary <- df %>%
+  filter(Salary.Frequency == 'Annual') %>%
+  filter((minqual_cleaned != 'special abilities required') & (!is.na(minqual_cleaned)))
+
+p <- ggplot(annual_salary, aes( mean.salary, factor(minqual_cleaned)))
+p + geom_violin() +
+  ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification Requirement") +
+  labs(y="Mean Annnual Salary", x="Min Qualification Requirement") +
+  theme(plot.title = element_text(size=12))
 ```
 

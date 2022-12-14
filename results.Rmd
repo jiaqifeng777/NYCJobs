@@ -38,3 +38,6 @@ To better visualize the association between minimum qualification requirement an
 
 ![Mosaic Plot of Job Competitiveness vs. Master Requirement](images/mosaic.png)
 
+## Annual Salary and Qualifications Analysis
+
+![Violin Plot of Jof Mean Annual Salary by Minimum Qualification Requirement](images/violin.png)
