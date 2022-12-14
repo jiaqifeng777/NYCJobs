@@ -104,7 +104,10 @@ df_agency <- df_agency %>%
   mutate(Agency =  
           case_when(Frequency <= 20 ~ "OTHER",
                     TRUE ~ Agency))
-ggplot(df_agency, aes(x = fct_reorder(Agency, Frequency,.desc = TRUE), y=Frequency))+
+df_agency <- df_agency %>%
+  group_by(Agency) %>%
+  summarise(Frequency = sum(Frequency))
+ggplot(df_agency, aes(x = fct_relevel(fct_reorder(Agency, Frequency,.desc = TRUE),"OTHER",after=Inf), y=Frequency))+
   geom_bar(stat='identity')  + 
   xlab("Agency")+
   ylab("Number of Jobs Posted") + 
@@ -136,39 +139,12 @@ ggplot(s_agency, aes(x = fct_reorder(Agency, avgSalary,.desc = TRUE), y=avgSalar
 library(Lock5withR)
 ggplot(s_agency, aes(x = avgSalary, y = fct_reorder(Agency, avgSalary))) +
   geom_point(color = "blue") +
-  ggtitle("Average Salary by Agency") +
+  ggtitle("Average Annual Salary by Agency") +
   ylab("") +
-  theme_linedraw()
+  theme_linedraw()+
+  theme(axis.text=element_text(size=5.5))
 ```
 
-
-```{r}
-table(df$Job.Category)
-```
-```{r}
-jobcat <- function(cat) {
-  result <- c()
-  if (length(cat)==0){
-    return(result)
-  }
-  if (grepl(',',cat)){
-    result <- strsplit(cat, ",")[[1]]
-    for (i in 1:length(result)){
-      if (substr(result[i],0,1) == ' '){
-        result[i] = sub(" ","",result[i])
-      }
-      if (substr(result[i],0,2) == '& '){
-        result[i] = sub("& ","",result[i])
-      }
-    }
-  } else {
-    result <- c()
-    result[0] <- cat
-  }
-  return(result)
-}
-df$skilst <-lapply(df$Job.Category, jobcat)
-```
 
 ```{r}
 # Job Category Cleaning
@@ -243,6 +219,52 @@ df %>%
 
 
 ```{r}
+df_highs <- df %>%
+  filter((Agency == "DEPT OF YOUTH & COMM DEV SRVS")|(Agency =="NYC EMPLOYEES RETIREMENT SYS")|(Agency == "DEPARTMENT OF TRANSPORTATION")) 
+highsg <- df_highs %>%
+  group_by(category_cleaned) %>%
+  summarise(Frequency = sum(X..Of.Positions))
+ggplot(highsg, aes(y = fct_reorder(category_cleaned, Frequency,.desc = FALSE), x=Frequency))+
+  geom_bar(stat='identity')  +
+  ylab("Job Category")+
+  xlab("Number of Jobs Posted") + 
+  labs(title="Number of Jobs by Job Category from Agencies with \nHigh Avg Salary")+
+  theme(axis.text=element_text(size=8),
+        axis.title.x = element_text(size=8),
+        axis.title.y = element_text(size=8),
+        plot.title = element_text(size=10))
+```
+
+
+```{r}
+table(df$Job.Category)
+```
+```{r}
+jobcat <- function(cat) {
+  result <- c()
+  if (length(cat)==0){
+    return(result)
+  }
+  if (grepl(',',cat)){
+    result <- strsplit(cat, ",")[[1]]
+    for (i in 1:length(result)){
+      if (substr(result[i],0,1) == ' '){
+        result[i] = sub(" ","",result[i])
+      }
+      if (substr(result[i],0,2) == '& '){
+        result[i] = sub("& ","",result[i])
+      }
+    }
+  } else {
+    result <- c()
+    result[0] <- cat
+  }
+  return(result)
+}
+df$catlst <-lapply(df$Job.Category, jobcat)
+```
+
+```{r}
 df_jobcat <- df %>%
   group_by(category_cleaned) %>%
   summarise(Frequency = sum(X..Of.Positions))
@@ -254,7 +276,7 @@ ggplot(df_jobcat, aes(x = fct_reorder(category_cleaned, Frequency,.desc = TRUE),
   ylab("Number of Jobs Posted") + 
   labs(title="Number of Jobs Posted by Job Category")+
   theme(axis.text.x=element_text(angle=60,hjust=1),
-        axis.text=element_text(size=5.5),
+        axis.text=element_text(size=7),
         axis.title.x = element_text(size=8),
         axis.title.y = element_text(size=8))
 ```
@@ -301,7 +323,8 @@ ggplot(annual_salary, aes(x=reorder(category_cleaned, -mean.salary, median),y=me
   geom_boxplot() +
   coord_flip() +
   ggtitle("Boxplot of Mean Annual Salary by Job Category") +
-  labs(y="Mean Annnual Salary", x="Job Category")
+  labs(y="Mean Annnual Salary", x="Job Category") +
+  theme(plot.title = element_text(size=12))
 ```
 ```{r}
 # Qual Requirements Cleaning

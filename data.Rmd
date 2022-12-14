@@ -22,11 +22,11 @@
 # [17] "Work.Location"
 ```
 
-  Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <mark >Career.Level</mark > and <mark >Full.Time.Part.Time.indicator"</mark> columns.
+  Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the **Career.Level** and **Full.Time.Part.Time.indicator** columns.
   
-  In the data transformation step, to have a better idea of the salary of each job, we add a new column 'Mean.Salary' by calculating the mean of <mark >Salary.Range.From</mark> and <mark >Salary.Range.To</mark>.
+  In the data transformation step, to have a better idea of the salary of each job, we add a new column 'Mean.Salary' by calculating the mean of **Salary.Range.From** and **Salary.Range.To**.
   
-  We also transformed the <mark >Residency.Requirement</mark> by adding a new column <mark >res.requirement</mark > to put the requirement into 3 categories: 'required', 'generally required', 'not required' to make it easier to analyze.
+  We also transformed the **Residency.Requirement** by adding a new column **res.requirement** to put the requirement into 3 categories: 'required', 'generally required', 'not required' to make it easier to analyze.
   
 
 ## Missing value analysis
@@ -38,8 +38,8 @@ There are 10 columns contain missing values. We would only focus on the 16 colum
 
 
 ![Missing Values Visualization on Selected Columns](images/missingvalueselected.png)
-The only columns that contain missing values here are "Minimum Qual Requirements" and "Preferred Skills". Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.
+The only columns that contain missing values here are **Minimum Qual Requirements** and **Preferred Skills**. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.
 
-Observed that "Preferred Skills" has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of "Preferred Skills" by "Agency" and visualize it with a bar plot. 
+Observed that **Preferred Skills** has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of **Preferred Skills** by **Agency** and visualize it with a bar plot. 
 ![Missing Values Counts](images/missingvaluescount.png)
-NYC Housing Authority has the most missing values for "Preferred Skills" and Police Department has the least. This is informative as police department have specific skill requirements due to its job nature, while housing authority might not，so the values for "Preferred Skills" tend to be missing on job postings.
+"NYC Housing Authority" has the most missing values for **Preferred Skills**. This is informative as housing authority might not need specific skills due to its job nature，so the values for "Preferred Skills" tend to be missing on job postings.
