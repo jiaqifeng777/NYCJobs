@@ -14,15 +14,19 @@ Besides, we use cleveland dot plot to visualize the average salary of each agenc
 From the plot above, we can see that **DEPT OF YOUTH & COMM DEV SRVS**, **NYC EMPLOYEES RETIREMENT SYS** and **DEPARTMENT OF TRANSPORTATION** has average salary much higher than other agencies. To have a better idea of the reason behind this finding, we will further analyze these agencies' job category.
 
 ![Bar Chart of Number of Jobs by Job Category from Selected Agencies](images/barhighsalary.png)
-From the graph above, we can see that the jobs posted by **DEPT OF YOUTH & COMM DEV SRVS**, **NYC EMPLOYEES RETIREMENT SYS** and **DEPARTMENT OF TRANSPORTATION** are all in four categories, in which most of them are in constituent service and technology categories. This finding can partly explained the high average salary for these three agencies since these kinds of jobs have high requirements and ususally have higher salary.
+From the graph above, we can see that the jobs posted by **DEPT OF YOUTH & COMM DEV SRVS**, **NYC EMPLOYEES RETIREMENT SYS** and **DEPARTMENT OF TRANSPORTATION** are all in four categories, in which most of them are in constituent service and technology categories. This finding can partly explained the high average salary for these three agencies since these kinds of jobs have high requirements and usually have higher salary.
 
 ## Job Conditions Analysis by Job Category
 
-In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.
+In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the average annual salary of these jobs.
 
 ![Bar Chart of Number of Jobs by Job Category](images/barcatsal.png)
-![Boxplot of Avg Annual Salary by Job Category](images/boxcatsal.png)
+From the above bar plot, *Building Operations* category has the greatest number of job postings, followed by *Constituent Services*, and *Clerical* category has the least number of job postings. The divergence on number of job postings may serve as an indication of the demands of labors for different job categories. For jobs in those categories that are not of technical work may have greater demand in labors, whereas those categories that have a requirement of technology and skills have relatively lower demand in labors.
 
+Then it prompts us to further analyze whether the distribution of average salary varies from different job categories. To visualize the distribution and compare among job categories, we made a box plot of Mean Annual Salary by Job Category.
+
+![Boxplot of Avg Annual Salary by Job Category](images/boxcatsal.png)
+From the above plot, jobs in Policy category have the highest median of mean annual salary, and jobs in Building Operations category have the lowest median of mean annual salary. There are some outliers for some categories, which is not surprising since we categorize the jobs into several major categories and there are variance in each category. Besides, it is noticeable that Building Operations category has the greatest number of job postings and Operations category has the second least from previous result. Combining the results, it may be suggestive that jobs in categories that have great labor demands tend to have lower technical content, and therefore lower pay. 
 
 ## Jobs Competitiveness and Qualifications Analysis
 

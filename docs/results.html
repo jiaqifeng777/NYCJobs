@@ -116,10 +116,23 @@
 <div id="job-conditions-analysis-by-agency" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Job Conditions Analysis by Agency<a href="results.html#job-conditions-analysis-by-agency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.</p>
+<p>First, we use bar chart to visualize the number of positions posted by each Agency. Since some of the agencies posted very few jobs, we put agencies posted less than 20 jobs into a category “OTHER”.</p>
+<p><img src="images/baragencynum.png" alt="Bar Plot of Number of Jobs Posted by Agency" />
+From the plot above, we can see that the Agency that posted the most jobs are <strong>DEPT OF PARKS &amp; RECREATION</strong> and <strong>NYC HOUSING AUTHORITY</strong>. It may be explained by the reason that there are lots of parks and recreation facilities in NYC, they need many people to maintain and manage these facilities. Besides, and due to the large population of NYC and increasing immigrants, housing authority has a larger demand for employees.</p>
+<p>Besides, we use cleveland dot plot to visualize the average salary of each agency.
+<img src="images/cleveagencysal.png" alt="Cleveland Dot Plot of Average Salary by Agency" />
+From the plot above, we can see that <strong>DEPT OF YOUTH &amp; COMM DEV SRVS</strong>, <strong>NYC EMPLOYEES RETIREMENT SYS</strong> and <strong>DEPARTMENT OF TRANSPORTATION</strong> has average salary much higher than other agencies. To have a better idea of the reason behind this finding, we will further analyze these agencies’ job category.</p>
+<p><img src="images/barhighsalary.png" alt="Bar Chart of Number of Jobs by Job Category from Selected Agencies" />
+From the graph above, we can see that the jobs posted by <strong>DEPT OF YOUTH &amp; COMM DEV SRVS</strong>, <strong>NYC EMPLOYEES RETIREMENT SYS</strong> and <strong>DEPARTMENT OF TRANSPORTATION</strong> are all in four categories, in which most of them are in constituent service and technology categories. This finding can partly explained the high average salary for these three agencies since these kinds of jobs have high requirements and usually have higher salary.</p>
 </div>
 <div id="job-conditions-analysis-by-job-category" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Job Conditions Analysis by Job Category<a href="results.html#job-conditions-analysis-by-job-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.</p>
+<p>In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the average annual salary of these jobs.</p>
+<p><img src="images/barcatsal.png" alt="Bar Chart of Number of Jobs by Job Category" />
+From the above bar plot, <em>Building Operations</em> category has the greatest number of job postings, followed by <em>Constituent Services</em>, and <em>Clerical</em> category has the least number of job postings. The divergence on number of job postings may serve as an indication of the demands of labors for different job categories. For jobs in those categories that are not of technical work may have greater demand in labors, whereas those categories that have a requirement of technology and skills have relatively lower demand in labors.</p>
+<p>Then it prompts us to further analyze whether the distribution of average salary varies from different job categories. To visualize the distribution and compare among job categories, we made a box plot of Mean Annual Salary by Job Category.</p>
+<p><img src="images/boxcatsal.png" alt="Boxplot of Avg Annual Salary by Job Category" />
+From the above plot, jobs in Policy category have the highest median of mean annual salary, and jobs in Building Operations category have the lowest median of mean annual salary. There are some outliers for some categories, which is not surprising since we categorize the jobs into several major categories and there are variance in each category. Besides, it is noticeable that Building Operations category has the greatest number of job postings and Operations category has the second least from previous result. Combining the results, it may be suggestive that jobs in categories that have great labor demands tend to have lower technical content, and therefore lower pay.</p>
 </div>
 <div id="jobs-competitiveness-and-qualifications-analysis" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Jobs Competitiveness and Qualifications Analysis<a href="results.html#jobs-competitiveness-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -128,7 +141,7 @@
 <p>To better visualize the association between minimum qualification requirement and job competitiveness, we plot a mosaic plot as below.</p>
 <div class="figure">
 <img src="images/mosaic.png" alt="" />
-<p class="caption">Mosaic Plot of Job Competitiveness and Master Requirement</p>
+<p class="caption">Mosaic Plot of Job Competitiveness vs. Master Requirement</p>
 </div>
 
 </div>
