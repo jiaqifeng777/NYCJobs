@@ -453,3 +453,10 @@ buildskill <- df_skill %>%
 wordcloud2(buildskill)
 ```
 
+```{r}
+df_g_skill <- df_skill %>%
+  group_by(cleanskill,category_cleaned) %>%
+  summarise(freq = sum(X..Of.Positions)) %>%
+  ungroup()
+```
+

@@ -1,0 +1,248 @@
+"","cleanskill","category_cleaned","freq"
+"1","analytical","Administration ",1
+"2","analytical","Communications ",2
+"3","analytical","Constituent Services ",14
+"4","analytical","Engineering",8
+"5","analytical","Finance",94
+"6","analytical","Legal Affairs",6
+"7","analytical","Public Safety",68
+"8","analytical","Social Services",30
+"9","analytical","Technology",4
+"10","communication","Administration ",58
+"11","communication","Building Operations ",34
+"12","communication","Clerical ",1
+"13","communication","Communications ",4
+"14","communication","Constituent Services ",249
+"15","communication","Engineering",120
+"16","communication","Finance",98
+"17","communication","Health",22
+"18","communication","Legal Affairs",105
+"19","communication","Policy",7
+"20","communication","Public Safety",137
+"21","communication","Social Services",28
+"22","communication","Technology",16
+"23","computer","Administration ",19
+"24","computer","Building Operations ",8
+"25","computer","Communications ",4
+"26","computer","Constituent Services ",51
+"27","computer","Engineering",40
+"28","computer","Finance",28
+"29","computer","Health",6
+"30","computer","Public Safety",45
+"31","computer","Social Services",6
+"32","computer","Technology",4
+"33","data","Clerical ",1
+"34","data","Communications ",12
+"35","data","Constituent Services ",37
+"36","data","Engineering",8
+"37","data","Finance",40
+"38","data","Policy",4
+"39","data","Public Safety",15
+"40","data","Technology",38
+"41","environment","Administration ",26
+"42","environment","Building Operations ",54
+"43","environment","Communications ",18
+"44","environment","Constituent Services ",20
+"45","environment","Engineering",4
+"46","environment","Finance",14
+"47","environment","Health",4
+"48","environment","Legal Affairs",6
+"49","environment","Policy",5
+"50","environment","Public Safety",2
+"51","environment","Technology",12
+"52","excel","Administration ",53
+"53","excel","Clerical ",1
+"54","excel","Communications ",4
+"55","excel","Constituent Services ",204
+"56","excel","Engineering",68
+"57","excel","Finance",85
+"58","excel","Health",4
+"59","excel","Legal Affairs",1
+"60","excel","Policy",5
+"61","excel","Public Safety",15
+"62","excel","Social Services",9
+"63","excel","Technology",6
+"64","interpersonal","Administration ",43
+"65","interpersonal","Building Operations ",33
+"66","interpersonal","Clerical ",1
+"67","interpersonal","Constituent Services ",28
+"68","interpersonal","Engineering",20
+"69","interpersonal","Finance",85
+"70","interpersonal","Health",18
+"71","interpersonal","Legal Affairs",4
+"72","interpersonal","Public Safety",43
+"73","interpersonal","Social Services",2
+"74","interpersonal","Technology",18
+"75","learn","Building Operations ",32
+"76","learn","Communications ",14
+"77","learn","Constituent Services ",18
+"78","learn","Finance",32
+"79","learn","Social Services",6
+"80","learn","Technology",12
+"81","license","Administration ",18
+"82","license","Building Operations ",30
+"83","license","Constituent Services ",161
+"84","license","Engineering",110
+"85","license","Health",8
+"86","license","Legal Affairs",1
+"87","license","Public Safety",78
+"88","management","Building Operations ",32
+"89","management","Clerical ",1
+"90","management","Communications ",20
+"91","management","Constituent Services ",188
+"92","management","Engineering",38
+"93","management","Finance",41
+"94","management","Health",2
+"95","management","Legal Affairs",18
+"96","management","Policy",15
+"97","management","Public Safety",2
+"98","management","Technology",26
+"99","microsoft","Administration ",81
+"100","microsoft","Building Operations ",27
+"101","microsoft","Communications ",2
+"102","microsoft","Constituent Services ",209
+"103","microsoft","Engineering",130
+"104","microsoft","Finance",75
+"105","microsoft","Health",2
+"106","microsoft","Legal Affairs",21
+"107","microsoft","Policy",2
+"108","microsoft","Public Safety",2
+"109","microsoft","Social Services",6
+"110","microsoft","Technology",14
+"111","ms","Administration ",7
+"112","ms","Communications ",6
+"113","ms","Constituent Services ",19
+"114","ms","Engineering",8
+"115","ms","Finance",12
+"116","ms","Legal Affairs",40
+"117","ms","Policy",3
+"118","ms","Social Services",3
+"119","ms","Technology",10
+"120","office","Administration ",38
+"121","office","Building Operations ",27
+"122","office","Communications ",4
+"123","office","Constituent Services ",73
+"124","office","Engineering",146
+"125","office","Finance",36
+"126","office","Legal Affairs",27
+"127","office","Policy",2
+"128","office","Public Safety",2
+"129","office","Social Services",6
+"130","office","Technology",8
+"131","oral","Administration ",48
+"132","oral","Clerical ",1
+"133","oral","Constituent Services ",21
+"134","oral","Engineering",72
+"135","oral","Finance",20
+"136","oral","Legal Affairs",62
+"137","oral","Policy",2
+"138","oral","Public Safety",4
+"139","oral","Social Services",2
+"140","oral","Technology",4
+"141","organizational","Administration ",7
+"142","organizational","Building Operations ",7
+"143","organizational","Clerical ",1
+"144","organizational","Constituent Services ",180
+"145","organizational","Engineering",20
+"146","organizational","Finance",38
+"147","organizational","Health",18
+"148","organizational","Legal Affairs",33
+"149","organizational","Policy",2
+"150","organizational","Public Safety",34
+"151","organizational","Social Services",28
+"152","organizational","Technology",2
+"153","powerpoint","Administration ",30
+"154","powerpoint","Communications ",4
+"155","powerpoint","Constituent Services ",21
+"156","powerpoint","Engineering",38
+"157","powerpoint","Finance",26
+"158","powerpoint","Health",2
+"159","powerpoint","Policy",2
+"160","powerpoint","Public Safety",2
+"161","powerpoint","Social Services",6
+"162","projects","Administration ",18
+"163","projects","Building Operations ",2
+"164","projects","Constituent Services ",5
+"165","projects","Engineering",64
+"166","projects","Finance",21
+"167","projects","Health",4
+"168","projects","Policy",2
+"169","projects","Public Safety",4
+"170","projects","Technology",6
+"171","public","Administration ",22
+"172","public","Building Operations ",27
+"173","public","Constituent Services ",29
+"174","public","Engineering",16
+"175","public","Finance",19
+"176","public","Health",2
+"177","public","Social Services",12
+"178","quantitative","Constituent Services ",5
+"179","quantitative","Finance",60
+"180","quantitative","Policy",2
+"181","quantitative","Technology",4
+"182","software","Administration ",20
+"183","software","Constituent Services ",18
+"184","software","Engineering",56
+"185","software","Finance",32
+"186","software","Social Services",6
+"187","software","Technology",16
+"188","team","Administration ",48
+"189","team","Building Operations ",4
+"190","team","Constituent Services ",188
+"191","team","Engineering",20
+"192","team","Finance",56
+"193","team","Legal Affairs",18
+"194","team","Policy",5
+"195","team","Technology",12
+"196","technical","Building Operations ",6
+"197","technical","Constituent Services ",6
+"198","technical","Engineering",26
+"199","technical","Finance",22
+"200","technical","Health",14
+"201","technical","Public Safety",26
+"202","technical","Technology",14
+"203","verbal","Administration ",9
+"204","verbal","Clerical ",1
+"205","verbal","Communications ",2
+"206","verbal","Constituent Services ",33
+"207","verbal","Engineering",34
+"208","verbal","Finance",57
+"209","verbal","Health",22
+"210","verbal","Legal Affairs",20
+"211","verbal","Policy",5
+"212","verbal","Public Safety",39
+"213","verbal","Technology",6
+"214","word","Administration ",53
+"215","word","Clerical ",1
+"216","word","Communications ",2
+"217","word","Constituent Services ",196
+"218","word","Engineering",42
+"219","word","Finance",53
+"220","word","Health",4
+"221","word","Legal Affairs",1
+"222","word","Policy",2
+"223","word","Public Safety",15
+"224","word","Social Services",9
+"225","writing","Administration ",11
+"226","writing","Clerical ",1
+"227","writing","Communications ",6
+"228","writing","Constituent Services ",29
+"229","writing","Engineering",16
+"230","writing","Finance",12
+"231","writing","Legal Affairs",12
+"232","writing","Policy",2
+"233","writing","Public Safety",80
+"234","writing","Social Services",34
+"235","writing","Technology",2
+"236","written","Administration ",35
+"237","written","Clerical ",1
+"238","written","Communications ",2
+"239","written","Constituent Services ",64
+"240","written","Engineering",106
+"241","written","Finance",97
+"242","written","Health",16
+"243","written","Legal Affairs",82
+"244","written","Policy",9
+"245","written","Public Safety",30
+"246","written","Social Services",30
+"247","written","Technology",14
