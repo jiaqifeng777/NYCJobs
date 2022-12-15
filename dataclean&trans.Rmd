@@ -76,10 +76,10 @@ extracat::visna(df)
 # Preferred.Skills
 skill_miss <- subset(df,is.na(Preferred.Skills))
 ggplot(skill_miss, aes(x=Agency)) +
-  geom_bar()+
+  geom_bar(fill = "sky blue")+
   theme(axis.text.x=element_text(angle=45,hjust=1),
         axis.text=element_text(size=5)) +
-  labs(title="Missing Prefered Skill by Agency")
+  labs(title="Missing 'Prefered Skill' Rows by Agency")
 ```
 # 4 Results
 ```{r}
@@ -111,10 +111,10 @@ df_agency <- df_agency %>%
   group_by(Agency) %>%
   summarise(Frequency = sum(Frequency))
 ggplot(df_agency, aes(x = fct_relevel(fct_reorder(Agency, Frequency,.desc = TRUE),"OTHER",after=Inf), y=Frequency))+
-  geom_bar(stat='identity')  + 
+  geom_bar(stat='identity',fill="sky blue")  + 
   xlab("Agency")+
-  ylab("Number of Jobs Posted") + 
-  labs(title="Number of Jobs Posted by Agency")+
+  ylab("Number of Posted Jobs") + 
+  labs(title="Number of Posted Jobs by Agency")+
   theme(axis.text.x=element_text(angle=60,hjust=1),
         axis.text=element_text(size=5.5),
         axis.title.x = element_text(size=8),
@@ -228,7 +228,7 @@ highsg <- df_highs %>%
   group_by(category_cleaned) %>%
   summarise(Frequency = sum(X..Of.Positions))
 ggplot(highsg, aes(y = fct_reorder(category_cleaned, Frequency,.desc = FALSE), x=Frequency))+
-  geom_bar(stat='identity')  +
+  geom_bar(stat='identity',fill="sky blue")  +
   ylab("Job Category")+
   xlab("Number of Jobs Posted") + 
   labs(title="Number of Jobs by Job Category from Agencies with \nHigh Avg Salary")+
@@ -274,7 +274,7 @@ df_jobcat <- df %>%
 
 
 ggplot(df_jobcat, aes(x = fct_reorder(category_cleaned, Frequency,.desc = TRUE), y=Frequency))+
-  geom_bar(stat='identity')  + 
+  geom_bar(stat='identity',fill="sky blue")  + 
   xlab("Job Category")+
   ylab("Number of Jobs Posted") + 
   labs(title="Number of Jobs Posted by Job Category")+
@@ -393,11 +393,12 @@ annual_salary <- df %>%
   filter(Salary.Frequency == 'Annual') %>%
   filter((minqual_cleaned != 'special abilities required') & (!is.na(minqual_cleaned)))
 
-p <- ggplot(annual_salary, aes( mean.salary, factor(minqual_cleaned)))
-p + geom_violin() +
+p <- ggplot(annual_salary, aes( mean.salary, factor(fct_relevel(minqual_cleaned,"master degree"))))
+p + geom_violin(adjust=3) +
   ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification Requirement") +
   labs(x="Mean Annnual Salary", y="Min Qualification Requirement") +
-  theme(plot.title = element_text(size=12))
+  theme(plot.title = element_text(size=12)) +
+  stat_summary(fun.data=mean_sdl, geom="pointrange", color="sky blue3")
 ```
 #Skill
 ```{r}
@@ -419,12 +420,12 @@ gskill <- df_skill %>%
   group_by(cleanskill) %>% 
   summarise(Freq = sum(X..Of.Positions),avgSalary = mean(mean.salary))
 ggplot(gskill, aes(x = fct_reorder(cleanskill, Freq,.desc = TRUE), y=Freq))+
-  geom_bar(stat='identity')  + 
+  geom_bar(stat='identity',fill="sky blue")  + 
   xlab("Skill")+
   ylab("Number of Jobs Related") + 
   labs(title="Skill Freq Distribution")+
   theme(axis.text.x=element_text(angle=60,hjust=1),
-        axis.text=element_text(size=5.5),
+        axis.text=element_text(size=7),
         axis.title.x = element_text(size=8),
         axis.title.y = element_text(size=8))
 ```
@@ -460,7 +461,7 @@ df_g_skill <- df_skill %>%
   ungroup()
 ```
 ```{r}
-df_gm_skill <- df_skill %>%
+df_gt_skill <- df_skill %>%
   group_by(cleanskill,minqual_cleaned) %>%
   summarise(freq = sum(X..Of.Positions)) %>%
   ungroup()
