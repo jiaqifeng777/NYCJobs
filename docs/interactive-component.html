@@ -117,12 +117,15 @@
 <h1><span class="header-section-number">Chapter 5</span> Interactive component<a href="interactive-component.html#interactive-component" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this part, we create a D3 interactive graph with a stacked bar chart that visualize the distribution of top 25 preferred skill in this dataset with respect to the jobs’ title classification. The different colors indicate the different job title classifications.</p>
 <p>Our interactive plot is on vizhub with this link: <a href="https://vizhub.com/TracyWangYQ/c8f12e1121eb4f168f29d1595d1cc9ab" class="uri">https://vizhub.com/TracyWangYQ/c8f12e1121eb4f168f29d1595d1cc9ab</a></p>
+<iframe src="interactive.html" width="1200" height="500">
+</iframe>
 <p>The instruction of interactions is below:</p>
 <ol style="list-style-type: decimal">
 <li><p>Hover over the bars, there will be concrete data of the bar, which tells the specific number of positions in this specific skill and title classification category.</p></li>
 <li><p>Hover over the legend to highlight the title classification in the bars.</p></li>
 </ol>
-<p>We use the example below from vizhub for our model. <a href="https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665" class="uri">https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665</a></p>
+<p>We use the example by Curran Kelleher below from vizhub for our model. <a href="https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665" class="uri">https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665</a></p>
+<p>What we tried but didn’t work: During updating to v7, we successfully upgraded the scale, axis, tip part, but failed to update the nest() and reverse() part about stack in render function. We include the current file in “testv7.html”, we will continue to find new methods under v7 structure to update this d3 graph in the future.</p>
 
 </div>
             </section>

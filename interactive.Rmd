@@ -4,13 +4,17 @@ In this part, we create a D3 interactive graph with a stacked bar chart that vis
 
 Our interactive plot is on vizhub with this link: https://vizhub.com/TracyWangYQ/c8f12e1121eb4f168f29d1595d1cc9ab
 
+<iframe src="interactive.html" width="1200" height="500"></iframe>
+
 The instruction of interactions is below:
 
 1. Hover over the bars, there will be concrete data of the bar, which tells the specific number of positions in this specific skill and title classification category.
 
 2. Hover over the legend to highlight the title classification in the bars.
 
-We use the example below from vizhub for our model. https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665
+We use the example by Curran Kelleher below from vizhub for our model. https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665
+
+What we tried but didn't work: During updating to v7, we successfully upgraded the scale, axis, tip part, but failed to update the nest() and reverse() part about stack in render function. We include the current file in “testv7.html", we will continue to find new methods under v7 structure to update this d3 graph in the future.
 
 
 
