@@ -1,0 +1,105 @@
+cleanskill,classification,freq
+communication,Competitive-1,415
+communication,Labor-3,6
+communication,Non-Competitive-5,317
+communication,Pending Classification-2,141
+microsoft,Competitive-1,394
+microsoft,Labor-3,0
+microsoft,Non-Competitive-5,106
+microsoft,Pending Classification-2,71
+written,Competitive-1,180
+written,Labor-3,0
+written,Non-Competitive-5,198
+written,Pending Classification-2,108
+excel,Competitive-1,282
+excel,Labor-3,0
+excel,Non-Competitive-5,90
+excel,Pending Classification-2,83
+license,Competitive-1,293
+license,Labor-3,18
+license,Non-Competitive-5,86
+license,Pending Classification-2,9
+management,Competitive-1,216
+management,Labor-3,0
+management,Non-Competitive-5,109
+management,Pending Classification-2,58
+word,Competitive-1,249
+word,Labor-3,0
+word,Non-Competitive-5,76
+word,Pending Classification-2,53
+organizational,Competitive-1,244
+organizational,Labor-3,0
+organizational,Non-Competitive-5,75
+organizational,Pending Classification-2,51
+office,Competitive-1,220
+office,Labor-3,0
+office,Non-Competitive-5,103
+office,Pending Classification-2,46
+team,Competitive-1,185
+team,Labor-3,4
+team,Non-Competitive-5,82
+team,Pending Classification-2,80
+interpersonal,Competitive-1,105
+interpersonal,Labor-3,6
+interpersonal,Non-Competitive-5,82
+interpersonal,Pending Classification-2,102
+oral,Competitive-1,83
+oral,Labor-3,0
+oral,Non-Competitive-5,107
+oral,Pending Classification-2,46
+verbal,Competitive-1,88
+verbal,Labor-3,0
+verbal,Non-Competitive-5,80
+verbal,Pending Classification-2,60
+analytical,Competitive-1,37
+analytical,Labor-3,0
+analytical,Non-Competitive-5,104
+analytical,Pending Classification-2,86
+computer,Competitive-1,86
+computer,Labor-3,8
+computer,Non-Competitive-5,72
+computer,Pending Classification-2,45
+writing,Competitive-1,46
+writing,Labor-3,0
+writing,Non-Competitive-5,143
+writing,Pending Classification-2,16
+environment,Competitive-1,45
+environment,Labor-3,0
+environment,Non-Competitive-5,96
+environment,Pending Classification-2,24
+data,Competitive-1,31
+data,Labor-3,6
+data,Non-Competitive-5,52
+data,Pending Classification-2,66
+software,Competitive-1,62
+software,Labor-3,0
+software,Non-Competitive-5,35
+software,Pending Classification-2,51
+powerpoint,Competitive-1,78
+powerpoint,Labor-3,0
+powerpoint,Non-Competitive-5,14
+powerpoint,Pending Classification-2,39
+public,Competitive-1,65
+public,Labor-3,0
+public,Non-Competitive-5,18
+public,Pending Classification-2,44
+projects,Competitive-1,74
+projects,Labor-3,0
+projects,Non-Competitive-5,34
+projects,Pending Classification-2,18
+learn,Competitive-1,0
+learn,Labor-3,0
+learn,Non-Competitive-5,68
+learn,Pending Classification-2,46
+technical,Competitive-1,84
+technical,Labor-3,0
+technical,Non-Competitive-5,2
+technical,Pending Classification-2,28
+ms,Competitive-1,17
+ms,Labor-3,0
+ms,Non-Competitive-5,65
+ms,Pending Classification-2,26
+quantitative,Competitive-1,0
+quantitative,Labor-3,0
+quantitative,Non-Competitive-5,7
+quantitative,Pending Classification-2,64

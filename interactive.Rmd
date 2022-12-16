@@ -1,6 +1,12 @@
 # Interactive component
 
-<script src="https://d3js.org/d3.v7.js"></script>
-<div id="mysvg"></div>
-<script src="scripts/interactive.js"></script>
+In this part, we create a D3 interactive graph with a stacked bar chart that visualize the distribution of top 25 preferred skill in this dataset based on the jobs' title classification. The different colors indicate the different job title classifications.
+
+The interactions are below:
+1. Hover over the bars, there will be concrete data of the bar, which tells the specific number of positions in this specific skill and title classfication category.
+2. Hover over the legend to highlight the title classfication in the bars.
+
+We use the example below from vizhub for as our model. https://vizhub.com/curran/ef717a89e37a4d9285cebfa904790665
+
+
 
