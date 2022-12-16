@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-12-12" />
+<meta name="date" content="2022-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -84,7 +84,13 @@
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.2</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Annual Salary and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.4</b> Skill Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -115,7 +121,7 @@
 <div id="data-availability" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Data availability<a href="proposal.html#data-availability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data we use in this project is from NYC Open Data (<a href="https://opendata.cityofnewyork.us" class="uri">https://opendata.cityofnewyork.us</a>). It is managed by the Open Data Team at the NYC Office of Technology and Innovation (OTI) and it contains free public data published by New York City agencies and other partners.</p>
-<p>The ataset we use is <em>NYC Jobs</em> (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) from this website. It contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). The data includes internal postings available to city employees and external postings available to the general public. The data is provided by Department of Citywide Administrative Services (DCAS). The data is constantly updating. It is updated “as needed” automatically. It was initially made public on May, 2013, and the last updated date as we worked on this project is on December 6, 2022.</p>
+<p>The dataset we use is <em>NYC Jobs</em> (<a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t</a>) from this website. It contains current job postings available on the City of New York’s official jobs site (<a href="http://www.nyc.gov/html/careers/html/search/search.shtml" class="uri">http://www.nyc.gov/html/careers/html/search/search.shtml</a>). The data includes internal postings available to city employees and external postings available to the general public. The data is provided by Department of Citywide Administrative Services (DCAS). The data is constantly updating. It is updated “as needed” automatically. It was initially made public on May, 2013, and the last updated date as we worked on this project is on December 6, 2022.</p>
 <p>The data is presented as a table on the website. We downloaded the data by exporting it to a CSV file directly from the website. To use it in our project, we would import the data using <em>read.csv()</em> function in R to read in and save the data set as a DataFrame object. The DataFrame contains 5421 observations and 30 variables. Each row is a job posting on the website, and the columns are the information for each job, eg. Agency, Business Title, Career Level, Salary, Job Category, Minimum Qual Requirements etc. As some columns contain tedious information and verbose texts that are irrelevant to our project, we wound mainly focus on some selected columns that are related with our study and provide insights on the job conditions in this project.</p>
 <p>The data is tidy since each row in the data set represents a single job posting with a unique job ID. It contains missing values on many columns and we would address the missing values on columns that are related to our study. After further explorations, we found the missing values on columns have some patterns, so we would also study if the missing patterns suggest something meaningful to the job conditions.</p>
 

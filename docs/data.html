@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-12-14" />
+<meta name="date" content="2022-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -86,11 +86,10 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-agency"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Agency</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.2</b> Job Conditions Analysis by Job Category</a></li>
-<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Jobs Competitiveness and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.4</b> Annual Salary and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.5</b> Skill Analysis</a></li>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.2</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Annual Salary and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.4</b> Skill Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
@@ -124,9 +123,18 @@
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as <strong>Title.Code.No</strong>. The remaining columns are the 16 columns below:</p>
-<p>Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time jobs. Now our dataset only have 511 rows, and we will drop the <strong>Career.Level</strong> and <strong>Full.Time.Part.Time.indicator</strong> columns.</p>
+<p>[1] “Agency” “X..Of.Positions”<br />
+[3] “Business.Title” “Civil.Service.Title”<br />
+[5] “Title.Classification” “Level”<br />
+[7] “Job.Category” “Full.Time.Part.Time.indicator”
+[9] “Career.Level” “Salary.Range.From”<br />
+[11] “Salary.Range.To” “Salary.Frequency”<br />
+[13] “Division.Work.Unit” “Minimum.Qual.Requirements”<br />
+[15] “Preferred.Skills” “Residency.Requirement”
+[17] “Work.Location”</p>
+<p>Besides, since we are particularly interested in the full-time jobs for entry level, we will only select rows of full time entry-level jobs. Now our dataset only have 511 rows, and we will drop the <strong>Career.Level</strong> and <strong>Full.Time.Part.Time.indicator</strong> columns.</p>
 <p>In the data transformation step, to have a better idea of the salary of each job, we add a new column ‘Mean.Salary’ by calculating the mean of <strong>Salary.Range.From</strong> and <strong>Salary.Range.To</strong>.</p>
-<p>We also transformed the <strong>Residency.Requirement</strong> by adding a new column <strong>res.requirement</strong> to put the requirement into 3 categories: ‘required’, ‘generally required’, ‘not required’ to make it easier to analyze.</p>
+<p>We also transformed the <strong>Job.Category</strong>,<strong>Minimum.Qual.Requirements</strong>, <strong>Preferred.Skills</strong> variables to make them eaiser to analyze.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>

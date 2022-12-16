@@ -23,7 +23,7 @@
 <meta name="author" content="Jackie Feng, Yuqian Wang" />
 
 
-<meta name="date" content="2022-12-14" />
+<meta name="date" content="2022-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -86,11 +86,10 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-agency"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Agency</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.2</b> Job Conditions Analysis by Job Category</a></li>
-<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Jobs Competitiveness and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.4</b> Annual Salary and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.5</b> Skill Analysis</a></li>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.2</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Annual Salary and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.4</b> Skill Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
@@ -115,8 +114,8 @@
             <section class="normal" id="section-">
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="job-conditions-analysis-by-agency" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Job Conditions Analysis by Agency<a href="results.html#job-conditions-analysis-by-agency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(All the codes in this section are in the file dataclean&amp;EDA.Rmd)
+## Job Conditions Analysis by Agency</p>
 <p>In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.</p>
 <p>First, we use bar chart to visualize the number of positions posted by each Agency. Since some of the agencies posted very few jobs, we put agencies posted less than 20 jobs into a category “OTHER”.</p>
 <p><img src="images/baragencynum.png" alt="Bar Plot of Number of Jobs Posted by Agency" />
@@ -132,9 +131,8 @@ From the plot above, we can see that the Agency that posted the most jobs are <s
 <p class="caption">Bar Chart of Number of Jobs by Job Category from Selected Agencies</p>
 </div>
 <p>From the graph above, we can see that the entry-level jobs posted by <strong>DEPT OF YOUTH &amp; COMM DEV SRVS</strong>, <strong>NYC EMPLOYEES RETIREMENT SYS</strong> and <strong>DEPARTMENT OF TRANSPORTATION</strong> are all in four categories, in which most of them are in constituent service and technology categories. This finding can partly explained the high average salary for these three agencies since these kinds of positions have higher requirements for employees and usually have higher salary.</p>
-</div>
-<div id="job-conditions-analysis-by-job-category" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Job Conditions Analysis by Job Category<a href="results.html#job-conditions-analysis-by-job-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="job-conditions-analysis-by-job-category" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Job Conditions Analysis by Job Category<a href="results.html#job-conditions-analysis-by-job-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the average annual salary of these jobs.</p>
 <div class="figure">
 <img src="images/barcatsal.png" alt="" />
@@ -148,8 +146,8 @@ From the plot above, we can see that the Agency that posted the most jobs are <s
 </div>
 <p>From the above plot, entry-level jobs in <strong>Policy</strong> category have the highest median of mean annual salary, and jobs in <strong>Building Operations</strong> category have the lowest median of mean annual salary. There are some outliers for some categories, which is not surprising since we categorize the jobs into several major categories and there are variance in each category. Besides, it is noticeable that <strong>Building Operations</strong> category has the greatest number of job postings and <strong>Policy</strong> has the second least from previous result. Combining the results, it may be suggestive that jobs in categories that have great labor demands tend to have lower technical content, and therefore lower pay.</p>
 </div>
-<div id="jobs-competitiveness-and-qualifications-analysis" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Jobs Competitiveness and Qualifications Analysis<a href="results.html#jobs-competitiveness-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="jobs-competitiveness-and-qualifications-analysis" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Jobs Competitiveness and Qualifications Analysis<a href="results.html#jobs-competitiveness-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this part, we will analyze the minimum qualification requirements of entry-level jobs and further study if it has an association with job competitiveness.</p>
 <p>After data cleaning on <strong>Minimum.Qual.Requirements</strong> column, we observe that the highest-standard minimum qualification requirement is Master’s Degree. As Master students, we would like to see whether jobs that require a minimum qualification of a Master’s Degree are more competitive. The competitiveness of jobs are indicated in the column <strong>Title.Classification</strong>. We did some data cleaning and categorized the competitiveness of jobs into ‘highly competitive’ and ‘not highly competitive’.</p>
 <p>To better visualize the association between minimum qualification requirement and job competitiveness, we plot a mosaic plot as below.</p>
@@ -158,8 +156,8 @@ From the plot above, we can see that the Agency that posted the most jobs are <s
 <p class="caption">Mosaic Plot of Job Competitiveness vs. Master Requirement</p>
 </div>
 </div>
-<div id="annual-salary-and-qualifications-analysis" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Annual Salary and Qualifications Analysis<a href="results.html#annual-salary-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="annual-salary-and-qualifications-analysis" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Annual Salary and Qualifications Analysis<a href="results.html#annual-salary-and-qualifications-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this part, we will further look at the distribution of average annual salary in each level of minimum qualification requirement. To better visualize the distribution and density of the salary in each group, we use the violin plot.</p>
 <div class="figure">
 <img src="images/violin.png" alt="" />
@@ -167,8 +165,8 @@ From the plot above, we can see that the Agency that posted the most jobs are <s
 </div>
 <p>From the plot above, the range of average annual salary for jobs that require relevant certificates and that require high school education are relatively small than other groups. Jobs that require a college degree have the greatest range of average annual salary. This is intuitive since most of the jobs in this dataset require a college degree, and the annual salary are influenced by other factors besides qualification requirements, resulting a greater variance. Since there are only few kinds of jobs that require relevant certificates, the annual salary for those jobs tend to cluster inside a certain range. It is also noticeable that the average annual salary for jobs that require high school education has two clusters, but they do not differ much. Jobs that require relative experience have most average salary clustered around the median. Jobs that require a master degree have the highest minimum average salary but also the greatest proportion of data clustered on the minimum average salary.</p>
 </div>
-<div id="skill-analysis" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Skill Analysis<a href="results.html#skill-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="skill-analysis" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Skill Analysis<a href="results.html#skill-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this part, we will analyze the preferred skill of jobs in this dataset. In particular, we select the top25 frequent skills mentioned in the dataset to analyze their frequency and average salary.</p>
 <div class="figure">
 <img src="images/barskillfreq.png" alt="" />

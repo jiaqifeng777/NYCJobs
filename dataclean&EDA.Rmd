@@ -46,18 +46,6 @@ df <- df %>%
   ))
 ```
  
-```{r}
-#
-#table(df$Minimum.Qual.Requirements)
-#df <- df %>%
-#  mutate(edu.require = case_when(
-#    grepl('baccalaureate degree',Minimum.Qual.Requirements) ~ 'baccalaureate degree',
-#    salary_type == 'week' ~ current_salary * 52,
-#    TRUE ~ current_salary
-#  ))
-#table(df$Preferred.Skills)
-```
-
 # 3.3 Missing Value
 ```{r}
 devtools::install_github("heike/extracat")
@@ -82,22 +70,6 @@ ggplot(skill_miss, aes(x=Agency)) +
   labs(title="Missing 'Prefered Skill' Rows by Agency")
 ```
 # 4 Results
-```{r}
-# Number of jobs by Agency
-df_agency <- df %>%
-  group_by(Agency) %>%
-  summarise(Frequency = sum(X..Of.Positions))
-
-ggplot(df_agency, aes(x = fct_reorder(Agency, Frequency,.desc = TRUE), y=Frequency))+
-  geom_bar(stat='identity')  + 
-  xlab("Agency")+
-  ylab("Number of Jobs Posted") + 
-  labs(title="Number of Jobs Posted by Agency")+
-  theme(axis.text.x=element_text(angle=60,hjust=1),
-        axis.text=element_text(size=5.5),
-        axis.title.x = element_text(size=8),
-        axis.title.y = element_text(size=8))
-```
 
 ```{r}
 df_agency <- df %>%
@@ -125,16 +97,6 @@ s_agency <- df %>%
   filter(Salary.Frequency == 'Annual') %>%
   group_by(Agency) %>%
   summarise(avgSalary = mean(mean.salary))
-s_agency
-ggplot(s_agency, aes(x = fct_reorder(Agency, avgSalary,.desc = TRUE), y=avgSalary))+
-  geom_bar(stat='identity')  +
-  xlab("Agency")+
-  ylab("Average Salary") + 
-  labs(title="Average Salary of Jobs Posted by Agency")+
-  theme(axis.text.x=element_text(angle=60,hjust=1),
-        axis.text=element_text(size=5.5),
-        axis.title.x = element_text(size=8),
-        axis.title.y = element_text(size=8))
 ```
 
 ```{r}
@@ -148,7 +110,7 @@ ggplot(s_agency, aes(x = avgSalary, y = fct_reorder(Agency, avgSalary))) +
   theme(axis.text=element_text(size=5.5))
 ```
 
-
+# Job Category Analysis
 ```{r}
 # Job Category Cleaning
 jobcat2 <- function(cat) {
@@ -238,35 +200,6 @@ ggplot(highsg, aes(y = fct_reorder(category_cleaned, Frequency,.desc = FALSE), x
         plot.title = element_text(size=10))
 ```
 
-
-```{r}
-#table(df$Job.Category)
-```
-```{r}
-jobcat <- function(cat) {
-  result <- c()
-  if (length(cat)==0){
-    return(result)
-  }
-  if (grepl(',',cat)){
-    result <- strsplit(cat, ",")[[1]]
-    for (i in 1:length(result)){
-      if (substr(result[i],0,1) == ' '){
-        result[i] = sub(" ","",result[i])
-      }
-      if (substr(result[i],0,2) == '& '){
-        result[i] = sub("& ","",result[i])
-      }
-    }
-  } else {
-    result <- c()
-    result[0] <- cat
-  }
-  return(result)
-}
-#df$catlst <-lapply(df$Job.Category, jobcat)
-```
-
 ```{r}
 df_jobcat <- df %>%
   group_by(category_cleaned) %>%
@@ -300,24 +233,6 @@ ggplot(s_cat, aes(x = avgSalary, y = fct_reorder(category_cleaned, avgSalary))) 
   theme_linedraw()
 ```
 
-
-```{r}
-# avg salary by job category
-s_cat <- df %>%
-  group_by(category_cleaned) %>%
-  summarise(avgSalary = mean(mean.salary))
-
-
-ggplot(s_cat, aes(x = fct_reorder(category_cleaned, avgSalary,.desc = TRUE), y=avgSalary))+
-  geom_bar(stat='identity')  +
-  xlab("Job Cateogry")+
-  ylab("Average Salary") + 
-  labs(title="Average Salary by Job Category")+
-  theme(axis.text.x=element_text(angle=60,hjust=1),
-        axis.text=element_text(size=5.5),
-        axis.title.x = element_text(size=8),
-        axis.title.y = element_text(size=8))
-```
 ```{r}
 annual_salary <- df %>%
   filter(Salary.Frequency == 'Annual') 
@@ -329,6 +244,8 @@ ggplot(annual_salary, aes(x=reorder(category_cleaned, -mean.salary, median),y=me
   labs(y="Mean Annnual Salary", x="Job Category") +
   theme(plot.title = element_text(size=12))
 ```
+
+# Jobs Competitiveness and Qualifications Analysis
 ```{r}
 # Qual Requirements Cleaning
 extract_qual <- function(qual) {
@@ -395,12 +312,12 @@ annual_salary <- df %>%
 
 p <- ggplot(annual_salary, aes( mean.salary, factor(fct_relevel(minqual_cleaned,"master degree"))))
 p + geom_violin(adjust=3) +
-  ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification Requirement") +
+  ggtitle("Violin Plot of Mean Annual Salary by Minimum Qualification \nRequirement") +
   labs(x="Mean Annnual Salary", y="Min Qualification Requirement") +
   theme(plot.title = element_text(size=12)) +
   stat_summary(fun.data=mean_sdl, geom="pointrange", color="sky blue3")
 ```
-#Skill
+# Skill Analysis
 ```{r}
 #clean skill
 df$cleanskill <- tolower(lapply(df$Preferred.Skills,function(x) str_replace_all(x, "[^a-zA-Z]", " ")))
@@ -445,25 +362,5 @@ techskill <- df_skill %>%
   group_by(cleanskill) %>%
   summarise(Freq=sum(X..Of.Positions))
 wordcloud2(techskill)
-```
-```{r}
-buildskill <- df_skill %>%
-  filter(category_cleaned == "Building Operations ") %>%
-  group_by(cleanskill) %>%
-  summarise(Freq=sum(X..Of.Positions))
-wordcloud2(buildskill)
-```
-
-```{r}
-df_g_skill <- df_skill %>%
-  group_by(cleanskill,category_cleaned) %>%
-  summarise(freq = sum(X..Of.Positions)) %>%
-  ungroup()
-```
-```{r}
-df_gt_skill <- df_skill %>%
-  group_by(cleanskill,minqual_cleaned) %>%
-  summarise(freq = sum(X..Of.Positions)) %>%
-  ungroup()
 ```
 
