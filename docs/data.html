@@ -86,10 +86,11 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Job Category</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.2</b> Jobs Competitiveness and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Annual Salary and Qualifications Analysis</a></li>
-<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.4</b> Skill Analysis</a></li>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#job-conditions-analysis-by-agency"><i class="fa fa-check"></i><b>4.1</b> Job Conditions Analysis by Agency</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#job-conditions-analysis-by-job-category"><i class="fa fa-check"></i><b>4.2</b> Job Conditions Analysis by Job Category</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#jobs-competitiveness-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.3</b> Jobs Competitiveness and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#annual-salary-and-qualifications-analysis"><i class="fa fa-check"></i><b>4.4</b> Annual Salary and Qualifications Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#skill-analysis"><i class="fa fa-check"></i><b>4.5</b> Skill Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
@@ -140,13 +141,22 @@
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are empty strings in this dataset that are missing values. To address them, we fill the empty strings with NAs.
 We use extracat::visna to visualize the missing values for each column in this dataset.</p>
-<p><img src="images/missingvalues.png" alt="Missing Values Visualization on Wohle Dataset" />
-There are 10 columns contain missing values. We would only focus on the 16 columns that contain pivotal information, so we further visualize missing values on these selected columns.</p>
-<p><img src="images/missingvalueselected.png" alt="Missing Values Visualization on Selected Columns" />
-The only columns that contain missing values here are <strong>Minimum Qual Requirements</strong> and <strong>Preferred Skills</strong>. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.</p>
-<p>Observed that <strong>Preferred Skills</strong> has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of <strong>Preferred Skills</strong> by <strong>Agency</strong> and visualize it with a bar plot.
-<img src="images/missingvaluescount.png" alt="Missing Values Counts" />
-“NYC Housing Authority” has the most missing values for <strong>Preferred Skills</strong>. This is informative as housing authority might not need specific skills due to its job nature，so the values for “Preferred Skills” tend to be missing on job postings.</p>
+<div class="figure">
+<img src="images/missingvalues.png" alt="" />
+<p class="caption">Missing Values Visualization on Wohle Dataset</p>
+</div>
+<p>There are 10 columns contain missing values. We would only focus on the 16 columns that contain pivotal information, so we further visualize missing values on these selected columns.</p>
+<div class="figure">
+<img src="images/missingvalueselected.png" alt="" />
+<p class="caption">Missing Values Visualization on Selected Columns</p>
+</div>
+<p>The only columns that contain missing values here are <strong>Minimum Qual Requirements</strong> and <strong>Preferred Skills</strong>. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.</p>
+<p>Observed that <strong>Preferred Skills</strong> has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of <strong>Preferred Skills</strong> by <strong>Agency</strong> and visualize it with a bar plot.</p>
+<div class="figure">
+<img src="images/missingvaluescount.png" alt="" />
+<p class="caption">Missing Values Counts</p>
+</div>
+<p>“NYC Housing Authority” has the most missing values for <strong>Preferred Skills</strong>. This is informative as housing authority might not need specific skills due to its job nature，so the values for “Preferred Skills” tend to be missing on job postings.</p>
 
 </div>
 </div>

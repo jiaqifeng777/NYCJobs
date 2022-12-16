@@ -8,6 +8,7 @@
   
   Although the dataset is mostly clean, there is still problem with it. Since the jobs are posted by different agencies, the formats of some columns are not uniform, especially for those that have long sentences such as **preferred skill**, so we will spend extra time to transform these data.
 
+
 ## Cleaning / transformation
 
   Since there are 30 columns in this dataset, we need to first remove the columns with no pivotal information such as **Title.Code.No**. The remaining columns are the 16 columns below:
@@ -34,11 +35,17 @@ There are empty strings in this dataset that are missing values. To address them
 We use extracat::visna to visualize the missing values for each column in this dataset.
 
 ![Missing Values Visualization on Wohle Dataset](images/missingvalues.png)
+
 There are 10 columns contain missing values. We would only focus on the 16 columns that contain pivotal information, so we further visualize missing values on these selected columns.
 
+
 ![Missing Values Visualization on Selected Columns](images/missingvalueselected.png)
+
 The only columns that contain missing values here are **Minimum Qual Requirements** and **Preferred Skills**. Since these two columns may relate to the salaries of jobs which is of our interests, we keep them for future study and use NA to indicate missing values instead of dropping the two columns.
 
 Observed that **Preferred Skills** has the most missing values, we would like to see whether the missing condition of preferred skills has something to do with agencies of jobs. Below, we count the number of missing values of **Preferred Skills** by **Agency** and visualize it with a bar plot. 
+
+
 ![Missing Values Counts](images/missingvaluescount.png)
+
 "NYC Housing Authority" has the most missing values for **Preferred Skills**. This is informative as housing authority might not need specific skills due to its job nature，so the values for "Preferred Skills" tend to be missing on job postings.

@@ -1,27 +1,35 @@
 # Results
+
 (All the codes in this section are in the file dataclean&EDA.Rmd)
+
 ## Job Conditions Analysis by Agency
 
 In this part, we will analyze the entry-level government jobs by Agency. In particular, we will analyze the number of jobs as well as the annual salary of these jobs.
 
 First, we use bar chart to visualize the number of positions posted by each Agency. Since some of the agencies posted very few jobs, we put agencies posted less than 20 jobs into a category "OTHER".
 
+
 ![Bar Plot of Number of Jobs Posted by Agency](images/baragencynum.png)
+
 From the plot above, we can see that the Agency that posted the most jobs are **DEPT OF PARKS & RECREATION** and **NYC HOUSING AUTHORITY**. It may be explained by the reason that there are lots of parks and recreation facilities in NYC, they need many people to maintain and manage these facilities. Besides, and due to the large population of NYC and increasing immigrants, housing authority has a larger demand for employees.
 
 Besides, we use cleveland dot plot to visualize the average salary of each agency. For easier comparision, we filtered the jobs with Annual Payment method.
+
 
 ![Cleveland Dot Plot of Average Salary by Agency](images/cleveagencysal.png)
 
 From the plot above, we can see that **DEPT OF YOUTH & COMM DEV SRVS**, **NYC EMPLOYEES RETIREMENT SYS** and **DEPARTMENT OF TRANSPORTATION** has average salary much higher than other agencies. To have a better idea of the reason behind this finding, we will further analyze these agencies' job category.
 
+
 ![Bar Chart of Number of Jobs by Job Category from Selected Agencies](images/barhighsalary.png)
 
 From the graph above, we can see that the entry-level jobs posted by **DEPT OF YOUTH & COMM DEV SRVS**, **NYC EMPLOYEES RETIREMENT SYS** and **DEPARTMENT OF TRANSPORTATION** are all in four categories, in which most of them are in constituent service and technology categories. This finding can partly explained the high average salary for these three agencies since these kinds of positions have higher requirements for employees and usually have higher salary.
 
+
 ## Job Conditions Analysis by Job Category
 
 In this part, we will analyze the entry-level government jobs by Job Category. In particular, we will analyze the number of jobs as well as the average annual salary of these jobs.
+
 
 ![Bar Chart of Number of Jobs by Job Category](images/barcatsal.png)
 
@@ -29,9 +37,11 @@ From the above bar plot, **Building Operations** category has the greatest numbe
 
 Then it prompts us to further analyze whether the distribution of average salary varies from different job categories. To visualize the distribution and compare among job categories, we made a box plot of Mean Annual Salary by Job Category.
 
+
 ![Boxplot of Avg Annual Salary by Job Category](images/boxcatsal.png)
 
 From the above plot, entry-level jobs in **Policy** category have the highest median of mean annual salary, and jobs in **Building Operations** category have the lowest median of mean annual salary. There are some outliers for some categories, which is not surprising since we categorize the jobs into several major categories and there are variance in each category. Besides, it is noticeable that **Building Operations** category has the greatest number of job postings and **Policy** has the second least from previous result. Combining the results, it may be suggestive that jobs in categories that have great labor demands tend to have lower technical content, and therefore lower pay. 
+
 
 ## Jobs Competitiveness and Qualifications Analysis
 
@@ -41,11 +51,13 @@ After data cleaning on **Minimum.Qual.Requirements** column, we observe that the
 
 To better visualize the association between minimum qualification requirement and job competitiveness, we plot a mosaic plot as below.
 
+
 ![Mosaic Plot of Job Competitiveness vs. Master Requirement](images/mosaic.png)
 
 ## Annual Salary and Qualifications Analysis
 
 In this part, we will further look at the distribution of average annual salary in each level of minimum qualification requirement. To better visualize the distribution and density of the salary in each group, we use the violin plot.
+
 
 ![Violin Plot of Job Mean Annual Salary by Minimum Qualification Requirement](images/violin.png)
 
@@ -56,15 +68,19 @@ From the plot above, the range of average annual salary for jobs that require re
 
 In this part, we will analyze the preferred skill of jobs in this dataset. In particular, we select the top25 frequent skills mentioned in the dataset to analyze their frequency and average salary.
 
+
 ![Bar Chart of Skill Frequency](images/barskillfreq.png)
 
 From the bar chart above, we can see that the most frequent skill mentioned in these entry-level jobs are **communication**, **microsoft**, and **written**. These are basic but significant skills for people in workplace.
 
 To further analyze the relationship between preferred skill and salary, we use cleveland plot to visualize the average salary of jobs that preferred each skill.
 
+
 ![Cleveland Plot of Skill Avg Salary](images/cleveskillsal.png)
 
 From the cleveland plot above, we can observe that the average salary of entry-level jobs with preferred skill **technical**, **data**, **quantitative** have highest average salary. This result matches our finding in the job category part that jobs with high technical requirement usually have higher salary. 
 
+
 ![Word Cloud of Skill in Technology Jobs](images/wordcloudtech.png)
+
 We use word cloud to visualize the prefered skills for entry-level technology jobs. From this graph, we can see that **data** is the most frequent skill mentioned in the technology jobs.

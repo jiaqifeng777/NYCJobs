@@ -7,6 +7,7 @@ sources
 cleaning-transformation
 missing-value-analysis
 results
+job-conditions-analysis-by-agency
 job-conditions-analysis-by-job-category
 jobs-competitiveness-and-qualifications-analysis
 annual-salary-and-qualifications-analysis
